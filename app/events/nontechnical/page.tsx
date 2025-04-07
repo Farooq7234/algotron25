@@ -1,4 +1,4 @@
-import Competition from '@/components/main/CulturalCompetition'
+// import Competition from '@/components/main/CulturalCompetition'
 import Navbar from '@/components/main/Navbar'
 import NonTechnical from '@/components/main/NonTechnicalCompetition';
 import StarsCanvas from '@/components/main/StarCanvas'

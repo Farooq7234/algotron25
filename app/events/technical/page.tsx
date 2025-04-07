@@ -1,4 +1,4 @@
-import Competition from '@/components/main/CulturalCompetition'
+// import Competition from '@/components/main/CulturalCompetition'
 import Events from '@/components/main/Event'
 import Footer from '@/components/main/Footer'
 import Navbar from '@/components/main/Navbar'
