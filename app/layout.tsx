@@ -3,7 +3,8 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import './responsive.css'
 import {Space_Grotesk, Bebas_Neue} from 'next/font/google'
-
+import { ClerkProvider } from "@clerk/nextjs";
+import { ToastContainer } from 'react-toastify';
 const inter = Inter({ subsets: ['latin'] })
 
 const space = Space_Grotesk({
@@ -14,8 +15,8 @@ const space = Space_Grotesk({
 
 
 export const metadata: Metadata = {
-  title: 'Infinitus 2024',
-  description: 'Annual Cultural fest of SRM University of Andhra Pradesh',
+  title: 'Algotron 2025',
+  description: 'Algotron 2025 is a cutting-edge platform that revolutionizes the way you interact with AI.',
 }
 
 export default function RootLayout({
@@ -24,8 +25,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider>
     <html lang="en" className={`${space.variable}`}>
       <body className={`${inter.className} bg-[#030014] overflow-y-auto overflow-x-hidden `}>{children}</body>
     </html>
+    </ClerkProvider>
   )
 }

@@ -10,6 +10,8 @@ import Footer from '@/components/main/Footer';
 import FlareCursor from '@/components/main/Cursor';
 import Loading from '@/components/main/Loading'
 import Questions from '@/components/main/FAQs';
+import Events from '@/components/main/Event';
+import Contact from '@/components/main/Contact';
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -36,7 +38,9 @@ const Home: React.FC = () => {
       <StarsCanvas />
       <Hero />
       <About />
+      <Events/>
       <Questions/>
+      <Contact/>
       <Footer />
       <Navbar />
         </>
