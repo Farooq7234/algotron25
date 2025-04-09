@@ -5,6 +5,10 @@ import FlareCursor from "@/components/main/Cursor";
 
 function Events() {
   const eventData = [
+<<<<<<< HEAD
+=======
+    // { title: "Cultural Fest Events", imageSrc: "/images/cultevents.jpeg" , name:"Cultural Events", href:"/events/cultural"},
+>>>>>>> 504b2f667cedce06829513e61812b1646ef59dba
     { title: "Technical Fest Events", imageSrc: "/images/techevents.jpeg", name:"Technical Event" , href:"/events/technical"},
     { title: "Non Technical Events", imageSrc: "/images/nontechevents.jpeg", name:"Technical Event" , href:"/events/nontechnical"}
   ];
