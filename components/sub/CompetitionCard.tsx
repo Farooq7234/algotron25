@@ -8,9 +8,10 @@ interface CardProps {
   title: string;
   initialDescription: string;
   linkTo: string;
+  onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, title, initialDescription, linkTo }) => {
+const Card: React.FC<CardProps> = ({ imageSrc, title, initialDescription, linkTo , onClick}) => {
   const [imageLoading, setImageLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const Card: React.FC<CardProps> = ({ imageSrc, title, initialDescription, linkTo
   }, []);
 
   return (
-    <div className='px-[10px] lg:p-0'>
+    <div className='px-[10px] lg:p-0' onClick={onClick}>
       <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
         <div className="h-[600px] w-[400px] flex justify-center items-center relative">
           {imageLoading && (
