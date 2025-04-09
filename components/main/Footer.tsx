@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white py-12 px-4 text-center">
+    <footer className="bg-black text-white py-12 px-4 text-center w-full">
       {/* Location Pill */}
       <div className="flex justify-center mb-8">
         <div className="flex items-center gap-2 border border-[#2c2c2c] px-6 py-3 rounded-full bg-[#0f0f0f]">

@@ -1,7 +1,7 @@
 'use client'
 
 import Navbar from '@/components/main/Navbar'
-import StarsCanvas from '@/components/main/StarCanvas'
+// import StarsCanvas from '@/components/main/StarCanvas'
 import React, { useState } from 'react'
 import { databases } from '@/lib/appwrite'
 import { ID } from 'appwrite'

@@ -7,7 +7,7 @@ import conf from '@/lib/conf'
 import { useUser } from '@clerk/nextjs'
 import { Query } from 'appwrite'
 import { Loader2 } from 'lucide-react'
-import StarsCanvas from '@/components/main/StarCanvas'
+// import StarsCanvas from '@/components/main/StarCanvas'
 
 const Dashboard = () => {
   const { user } = useUser()
@@ -37,7 +37,7 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <StarsCanvas/>
+      {/* <StarsCanvas/> */}
       <div className="min-h-screen bg-[#0a0a23] text-white px-4 py-40 flex flex-col items-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-10 text-center text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
           Your Event Dashboard

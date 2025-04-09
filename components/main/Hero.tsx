@@ -4,21 +4,39 @@ import Timer from '../sub/Timer';
 import { motion } from 'framer-motion';
 import { fromTop } from '@/public/utils/motion';
 import Link from 'next/link';
+import { SparklesCore } from '../ui/sparkles';
+import { TypingAnimation } from '../magicui/typing-animation';
+
 
 const Hero: React.FC = () => {
   const background1 = '';
   return (
-    <section className='flex flex-col items-center justify-center min-h-screen bg-contain bg-center bg-fixed' style={{ backgroundImage: `url(${background1})` }}>
+    <section className='flex flex-col z-50 items-center justify-center min-h-screen bg-contain bg-center bg-fixed' style={{ backgroundImage: `url(${background1})` }}>
       <div className='mb-20'>
         <motion.div variants={fromTop(0.8)} initial="initial" animate="animate">
-          <img
-            src="/algotron_logo.png"
-            alt="infinitus logo"
-            width={500}
-            height={10}
-            style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '0' }}
-            className='z-4 relative px-10 '
-          />
+        <div className=" w-full ">
+      <h1 className="md:text-7xl text-3xl lg:text-8xl font-bold text-center text-white relative z-20">
+       <TypingAnimation>ALGOTRON 4.0</TypingAnimation>
+      </h1>
+      <div className="w-[40rem]  relative">
+        {/* Gradients */}
+        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[5px] w-3/4 blur-sm" />
+        <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[6px] w-1/4 blur-sm" />
+        <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+ 
+        {/* Core component */}
+        <SparklesCore
+          background="transparent"
+          minSize={0.4}
+          maxSize={1}
+          particleDensity={500}
+          className="w-full h-4"
+          particleColor="#FFFFFF"
+        />
+ 
+      </div>
+    </div>
         </motion.div>
       </div>
       <div className='flex flex-col items-center justify-center gap-28'>

@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye, EyeOff } from "lucide-react";
 
+
 export default function SignUp() {
   const { isLoaded, signUp, setActive } = useSignUp();
   const [emailAddress, setEmailAddress] = useState("");
@@ -37,6 +38,9 @@ export default function SignUp() {
     e.preventDefault();
     try {
       setIsSignUp(true);
+      if (!signUp) {
+        throw new Error("SignUp object is not loaded.");
+      }
       await signUp.create({ firstName, lastName, emailAddress, password });
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
       setPendingVerification(true);
@@ -50,7 +54,11 @@ export default function SignUp() {
   async function onPressVerify(e: React.FormEvent) {
     e.preventDefault();
     try {
+      setError("");
       setIsVerify(true);
+      if (!signUp) {
+        throw new Error("SignUp object is not loaded.");
+      }
       const completeSignUp = await signUp.attemptEmailAddressVerification({ code });
       if (completeSignUp.status === "complete") {
         await setActive({ session: completeSignUp.createdSessionId });
@@ -60,12 +68,14 @@ export default function SignUp() {
       setError(err.errors[0].message);
     } finally {
       setIsVerify(false);
+      setError("");
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 px-4">
-      <Card className="w-full max-w-md shadow-xl backdrop-blur-md bg-white/80 border border-white/30">
+    <div className=" flex justify-center items-center mt-40 w-full">
+ 
+      <Card className="w-[300px] md:w-[350px]  shadow-xl backdrop-blur-md bg-white border border-white/30">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center text-gray-800">
             Sign Up for Algotron
@@ -75,7 +85,7 @@ export default function SignUp() {
           {!pendingVerification ? (
             <form onSubmit={submit} className="space-y-5">
               <div>
-                <Label>First Name</Label>
+                <Label className="text-lg">First Name</Label>
                 <Input
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -85,7 +95,7 @@ export default function SignUp() {
                 />
               </div>
               <div>
-                <Label>Last Name</Label>
+                <Label className="text-lg">Last Name</Label>
                 <Input
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
@@ -94,7 +104,7 @@ export default function SignUp() {
                 />
               </div>
               <div>
-                <Label>Email</Label>
+                <Label className="text-lg">Email</Label>
                 <Input
                   type="email"
                   value={emailAddress}
@@ -104,7 +114,7 @@ export default function SignUp() {
                 />
               </div>
               <div>
-                <Label>Password</Label>
+                <Label className="text-lg">Password</Label>
                 <div className="relative">
                   <Input
                     type={showPassword ? "text" : "password"}
@@ -152,7 +162,7 @@ export default function SignUp() {
               <Button
                 type="submit"
                 disabled={isVerify}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white"
+                className="w-full bg-purple-600 text-white"
               >
                 {isVerify ? "Verifying..." : "Verify Email"}
               </Button>
@@ -167,5 +177,6 @@ export default function SignUp() {
         </CardFooter>
       </Card>
     </div>
+
   );
 }

@@ -68,23 +68,26 @@ export default function SignIn() {
         <CardContent>
           <form onSubmit={submit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-lg">Email</Label>
               <Input
                 type="email"
                 id="email"
                 value={emailAddress}
                 onChange={(e) => setEmailAddress(e.target.value)}
+                className="border border-slate-400 "
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-lg">Password</Label>
               <div className="relative">
                 <Input
                   type={showPassword ? "text" : "password"}
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                className="border border-slate-400 "
+
                   required
                 />
                 <button
@@ -114,16 +117,17 @@ export default function SignIn() {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="justify-center">
-          <p className="text-base text-muted-foreground">
+        <CardFooter className="flex justify-around items-center">
+          <p className="text-lg ">
             Don&apos;t have an account?{" "}
-            <Link
+           
+          </p>
+          <Link
               href="/sign-up"
-              className="font-medium text-primary hover:underline text-violet-800"
+              className="font-medium text-lg  hover:underline text-violet-800"
             >
               Sign up
             </Link>
-          </p>
         </CardFooter>
       </Card>
     </div>

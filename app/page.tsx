@@ -12,6 +12,7 @@ import Loading from '@/components/main/Loading'
 import Questions from '@/components/main/FAQs';
 import Events from '@/components/main/Event';
 import Contact from '@/components/main/Contact';
+import { SparklesCore } from '@/components/ui/sparkles';
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -34,8 +35,22 @@ const Home: React.FC = () => {
         </div>
       ) : (
         <>
+      
+      
+<div className=" relative w-full ">
+      <div className="w-full absolute inset-0 ">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+        />
+      </div>
       <FlareCursor/>
-      <StarsCanvas />
+      {/* <StarsCanvas /> */}
       <Hero />
       <About />
       <Events/>
@@ -43,10 +58,16 @@ const Home: React.FC = () => {
       <Contact/>
       <Footer />
       <Navbar />
+    </div>
+   
         </>
+
+        
       )}
     </main>
   );
 };
+
+
 
 export default Home;
