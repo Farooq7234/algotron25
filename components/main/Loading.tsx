@@ -1,22 +1,24 @@
+'use client';
+
 import React from 'react';
+import { Atom } from "react-loading-indicators";
 
-
-
-const PyramidLoader: React.FC = () => {
+const AlgotronLoader: React.FC = () => {
   return (
-    <div className="loading">
- <svg viewBox="0 0 187.3 93.7" height="100px" width="200px" className="svgbox">
-  <defs>
-    <linearGradient y2="0%" x2="100%" y1="0%" x1="0%" id="gradient">
-      <stop stopColor="purple" offset="0%"></stop>
-      
-         <stop stopColor="blue" offset="100%"></stop>
-    </linearGradient>
-  </defs>
-  <path stroke="url(#gradient)" d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"></path>
-</svg>
-</div>
+    <div className="relative w-full h-screen flex justify-center items-center overflow-hidden bg-black">
+
+      {/* Glowing Grid Background */}
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(#7F00FF_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 animate-pulse" />
+
+      {/* Optional Nebula Overlay */}
+      <div className="absolute inset-0 z-0 bg-[url('/nebula.svg')] bg-cover bg-center blur-sm opacity-30" />
+
+      {/* Loader */}
+      <div className="z-10">
+        <Atom color="#9e05f4" size="large" text="" textColor="" />
+      </div>
+    </div>
   );
 };
 
-export default PyramidLoader;
+export default AlgotronLoader;
