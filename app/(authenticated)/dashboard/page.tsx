@@ -7,10 +7,11 @@ import conf from '@/lib/conf'
 import { useUser } from '@clerk/nextjs'
 import { Query } from 'appwrite'
 import { Loader2 } from 'lucide-react'
-// import StarsCanvas from '@/components/main/StarCanvas'
+import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
   const { user } = useUser()
+  const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState<any[]>([])
 
@@ -37,7 +38,6 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      {/* <StarsCanvas/> */}
       <div className="min-h-screen bg-[#0a0a23] text-white px-4 py-40 flex flex-col items-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-10 text-center text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
           Your Event Dashboard
@@ -49,7 +49,15 @@ const Dashboard = () => {
             Fetching your registration details...
           </div>
         ) : data.length === 0 ? (
-          <p className="text-lg md:text-xl text-gray-400 text-center">No registrations found. Join an event to get started!</p>
+          <div className="text-center">
+            <p className="text-lg md:text-xl text-gray-400 mb-6">No registrations found. Join an event to get started!</p>
+            <button
+              onClick={() => router.push('/event-registration')}
+              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-md transition"
+            >
+              Go to Event Registration
+            </button>
+          </div>
         ) : (
           <div className="w-full max-w-4xl grid gap-8 ">
             {data.map((doc) => (

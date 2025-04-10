@@ -167,28 +167,28 @@ export default function SignUp() {
               </Button>
             </form>
           ) : (
-            <form onSubmit={onPressVerify} className="space-y-4">
-              <Label className="text-2xl">Verification Code</Label>
-              <Input
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-                className=" p-6 text-2xl"
-                placeholder="Enter verification code"
-                required
-              />
-              {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
-              <Button
-                type="submit"
-                disabled={isVerify}
-                className="w-full bg-purple-600 text-white"
-              >
-                {isVerify ? "Verifying..." : "Verify Email"}
-              </Button>
-            </form>
+            <form onSubmit={onPressVerify} className="space-y-4 ">
+            <Label className="text-2xl">Verification Code</Label>
+            <Input
+              value={code}
+              onChange={(e) => setCode(e.target.value)}
+              className=" p-6 text-2xl"
+              placeholder="Enter verification code"
+              required
+            />
+            {error && (
+              <Alert variant="destructive">
+                <AlertDescription>{error}</AlertDescription>
+              </Alert>
+            )}
+            <Button
+              type="submit"
+              disabled={isVerify}
+              className="w-full bg-purple-600 text-white"
+            >
+              {isVerify ? "Verifying..." : "Verify Email"}
+            </Button>
+          </form>
           )}
         </CardContent>
         <CardFooter className="justify-center text-xl text-gray-200">
