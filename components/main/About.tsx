@@ -34,7 +34,7 @@ const About = () => {
         className="flex flex-col lg:flex-row items-center justify-center lg:justify-between p-8 gap-16"
         variants={fadeInVariants}
       >
-        <motion.div
+        {/* <motion.div
           className="mx-auto z-50 "
           variants={fadeInVariants}
         >
@@ -46,9 +46,9 @@ const About = () => {
             style={{ width: '450px', height: '550px' }}
             className="w-full h-auto mb-8 object-cover  rounded-3xl"
           />
-        </motion.div>
+        </motion.div> */}
         <motion.div
-          className="lg:w-1/2"
+          className="px-2 sm:px-40"
           variants={fadeInVariants}
         >
           <h2 className="text-4xl flex-wrap lg:text-6xl flex justify-around font-space font-semibold mb-2 lg:mb-6 text-left lg:text-left bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA]">
