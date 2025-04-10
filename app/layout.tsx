@@ -28,20 +28,18 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en" className={`${space.variable}`}>
-    <div className="w-full absolute inset-0 ">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={100}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
-
-
-        />
-      </div>
-      <body className={`${inter.className} bg-[#030014] overflow-y-auto overflow-x-hidden `}>{children}</body>
+      <body className={`${inter.className} bg-[#030014] overflow-y-auto overflow-x-hidden `}>
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+            <SparklesCore
+              id="sparkle-bg"
+              background="transparent"
+              minSize={0.6}
+              maxSize={1.4}
+              particleDensity={100}
+              className="w-full h-full"
+              particleColor="#FFFFFF"
+            />
+          </div>{children}</body>
     </html>
     </ClerkProvider>
   )

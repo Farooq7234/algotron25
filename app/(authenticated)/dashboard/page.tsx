@@ -6,8 +6,9 @@ import { databases } from '@/lib/appwrite'
 import conf from '@/lib/conf'
 import { useUser } from '@clerk/nextjs'
 import { Query } from 'appwrite'
-import { Loader2 } from 'lucide-react'
+import { Loader2, Calendar, Building2, Phone, Receipt, Target } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { BorderBeam } from '@/components/magicui/border-beam'
 
 const Dashboard = () => {
   const { user } = useUser()
@@ -38,71 +39,105 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#0a0a23] text-white px-4 py-40 flex flex-col items-center">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-10 text-center text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
-          Your Event Dashboard
-        </h2>
+      <div className="min-h-screen text-white px-4 py-28 md:py-36 flex flex-col items-center mt-10">
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+            Your Event Dashboard
+          </h2>
 
-        {loading ? (
-          <div className="flex items-center gap-3 text-lg md:text-xl text-gray-300">
-            <Loader2 className="animate-spin w-6 h-6" />
-            Fetching your registration details...
-          </div>
-        ) : data.length === 0 ? (
-          <div className="text-center">
-            <p className="text-lg md:text-xl text-gray-400 mb-6">No registrations found. Join an event to get started!</p>
-            <button
-              onClick={() => router.push('/event-registration')}
-              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-md transition"
-            >
-              Go to Event Registration
-            </button>
-          </div>
-        ) : (
-          <div className="w-full max-w-4xl grid gap-8 ">
-            {data.map((doc) => (
-              <div
-                key={doc.$id}
-                className="bg-[#1c1c3a] p-6 md:p-8 rounded-2xl shadow-xl border border-gray-700 transition hover:shadow-purple-800/40"
-              >
-                <div className="flex flex-col md:flex-row md:justify-between mb-4">
-                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-wide">{doc.name}</h3>
-                  <span className="text-lg md:text-xl text-green-400 font-semibold mt-2 md:mt-0">
-                    ₹{doc.amount}
-                  </span>
-                </div>
-
-                <div className="grid gap-3 md:gap-10 text-base md:text-2xl text-gray-300 leading-relaxed">
-                  <div>
-                    <span className="font-medium text-white">🎓 College:</span> {doc.college}
-                  </div>
-                  <div>
-                    <span className="font-medium text-white">🏢 Department:</span> {doc.department}
-                  </div>
-                  <div>
-                    <span className="font-medium text-white">📞 Phone:</span> {doc.phone}
-                  </div>
-                  <div>
-                    <span className="font-medium text-white">🧾 Transaction ID:</span> {doc.transactionId}
-                  </div>
-                  <div>
-                    <span className="font-medium text-white">🎯 Selected Events:</span>{' '}
-                    {doc.selectedEvents
-                      ? JSON.parse(doc.selectedEvents).map((event: string, index: number) => (
-                          <span
-                            key={index}
-                            className="inline-block bg-purple-600/20 text-purple-300 px-3 py-1 rounded-md mr-2 mt-1 text-sm md:text-lg"
-                          >
-                            {event}
-                          </span>
-                        ))
-                      : 'N/A'}
-                  </div>
-                </div>
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-16">
+              <Loader2 className="animate-spin w-10 h-10 text-purple-500 mb-4" />
+              <p className="text-lg md:text-xl text-gray-300">Fetching your registration details...</p>
+            </div>
+          ) : data.length === 0 ? (
+            <div className="text-center bg-[#171732]/60 backdrop-blur-sm rounded-3xl p-10 border border-gray-700/30 shadow-xl max-w-xl mx-auto">
+              <div className="rounded-full w-20 h-20 bg-purple-600/20 flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-10 h-10 text-purple-300" />
               </div>
-            ))}
-          </div>
-        )}
+              <p className="text-xl md:text-2xl text-gray-200 mb-3 font-medium">No registrations found</p>
+              <p className="text-gray-400 mb-8">You haven't registered for any events yet.</p>
+              <button
+                onClick={() => router.push('/event-registration')}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 text-base shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50"
+              >
+                Register Now
+              </button>
+            </div>
+          ) : (
+            <div className="w-full grid gap-8">
+              {data.map((doc) => (
+                <div
+                  key={doc.$id}
+                  className="bg-gradient-to-br from-[#1b1b36]/80 to-[#111123]/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-xl border border-gray-700/30 hover:shadow-purple-600/20 transition duration-500 transform hover:-translate-y-1"
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700/50 pb-5 mb-6">
+                    <h3 className="text-3xl md:text-4xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 capitalize">
+                      {doc.name}
+                    </h3>
+                    <div className="mt-4 md:mt-0 bg-green-500/10 text-green-400 font-bold px-4 py-2 rounded-full flex items-center">
+                      <span className="text-lg md:text-xl">₹{doc.amount}</span>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-5 text-base md:text-lg text-gray-300">
+                    <div className="flex items-center gap-3">
+                      <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium text-gray-200">College:</span> 
+                        <span className="ml-2 capitalize">{doc.college}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium text-gray-200">Department:</span> 
+                        <span className="ml-2">{doc.department}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium text-gray-200">Phone:</span> 
+                        <span className="ml-2">{doc.phone}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-3">
+                      <Receipt className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium text-gray-200">Transaction ID:</span> 
+                        <span className="ml-2 font-mono">{doc.transactionId}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-2">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Target className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <span className="font-medium text-gray-200">Selected Events:</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2 pl-8">
+                        {doc.selectedEvents
+                          ? JSON.parse(doc.selectedEvents).map((event: string, index: number) => (
+                              <span
+                                key={index}
+                                className="inline-block bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-purple-200 px-4 py-2 rounded-full text-sm border border-purple-500/30"
+                              >
+                                {event}
+                              </span>
+                            ))
+                          : <span className="text-gray-400">N/A</span>}
+                      </div>
+                    </div>
+                  <BorderBeam duration={6} size={200}/>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </>
   )
