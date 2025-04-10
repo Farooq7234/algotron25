@@ -37,6 +37,7 @@ export default function SignIn() {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    setError("");
     if (!isLoaded) {
       return;
     }

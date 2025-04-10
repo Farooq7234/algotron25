@@ -54,7 +54,6 @@ export default function SignUp() {
       setError(err.errors[0].message);
     } finally {
       setIsSignUp(false);
-      setError("");
     }
   }
 
@@ -75,7 +74,6 @@ export default function SignUp() {
       setError(err.errors[0].message);
     } finally {
       setIsVerify(false);
-      setError("");
     }
   }
 
