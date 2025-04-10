@@ -15,7 +15,10 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import Navbar from "@/components/main/Navbar";
+import { SparklesCore } from "@/components/ui/sparkles";
 
 export default function SignIn() {
   const { isLoaded, signIn, setActive } = useSignIn();
@@ -27,7 +30,9 @@ export default function SignIn() {
   const router = useRouter();
 
   if (!isLoaded) {
-    return <h1>Loading...</h1>;
+    return <div className="flex justify-center items-center min-h-screen text-3xl fontbold">
+    <p className="text-3xl fontbold mr-5">Loading</p>
+    <Loader2 className="animate-spin"/></div>
   }
 
   async function submit(e: React.FormEvent) {
@@ -59,34 +64,47 @@ export default function SignIn() {
 
   return (
     <div className="flex items-center justify-center min-h-screen ">
-      <Card className="w-[350px] sm:w-full max-w-md bg-white text-black">
+       <div className="w-full absolute inset-0 ">
+              <SparklesCore
+                id="tsparticlesfullpage"
+                background="transparent"
+                minSize={0.6}
+                maxSize={1.4}
+                particleDensity={100}
+                className="w-full h-full"
+                particleColor="#FFFFFF"
+      
+      
+              />
+            </div>
+      <Card className="relative w-[350px] overflow-hidden bg-gray-950 shadow-lg rounded-lg p-3 py-14 text-white">
         <CardHeader>
-          <CardTitle className="text-2xl font-bold text-center">
+          <CardTitle className="text-3xl font-bold text-center">
             Sign In to Algotron
           </CardTitle>
         </CardHeader>
         <CardContent>
           <form onSubmit={submit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-lg">Email</Label>
+              <Label htmlFor="email" className="text-2xl">Email</Label>
               <Input
                 type="email"
                 id="email"
                 value={emailAddress}
                 onChange={(e) => setEmailAddress(e.target.value)}
-                className="border border-slate-400 "
+                className="p-5 text-4xl "
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-lg">Password</Label>
+              <Label htmlFor="password" className="text-2xl">Password</Label>
               <div className="relative">
                 <Input
                   type={showPassword ? "text" : "password"}
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                className="border border-slate-400 "
+                className="p-5 text-4xl"
 
                   required
                 />
@@ -96,9 +114,9 @@ export default function SignIn() {
                   className="absolute right-2 top-1/2 -translate-y-1/2"
                 >
                   {showPassword ? (
-                    <EyeOff className="h-4 w-4 text-gray-500" />
+                    <EyeOff className="h-6 w-6 text-gray-500" />
                   ) : (
-                    <Eye className="h-4 w-4 text-gray-500" />
+                    <Eye className="h-6 w-6 text-gray-500" />
                   )}
                 </button>
               </div>
@@ -111,25 +129,27 @@ export default function SignIn() {
             <Button
               type="submit"
               disabled={isSignIn}
-              className="w-full bg-black  text-white"
+              className="w-full bg-purple-600 hover:bg-purple-900 text-2xl py-6  text-white"
             >
               Sign In
             </Button>
           </form>
         </CardContent>
         <CardFooter className="flex justify-around items-center">
-          <p className="text-lg ">
+          <p className="text-xl">
             Don&apos;t have an account?{" "}
            
           </p>
           <Link
               href="/sign-up"
-              className="font-medium text-lg  hover:underline text-violet-800"
+              className="font-medium text-2xl underline  text-purple-800"
             >
               Sign up
             </Link>
         </CardFooter>
+        <BorderBeam duration={8} size={100}/>
       </Card>
+      <Navbar/>
     </div>
   );
 }

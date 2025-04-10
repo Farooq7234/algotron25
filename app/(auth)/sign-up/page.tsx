@@ -15,7 +15,10 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { BorderBeam } from "@/components/magicui/border-beam";
+import Navbar from "@/components/main/Navbar";
+import  {SparklesCore}  from "@/components/ui/sparkles";
 
 
 export default function SignUp() {
@@ -32,10 +35,13 @@ export default function SignUp() {
   const [isVerify, setIsVerify] = useState(false);
   const router = useRouter();
 
-  if (!isLoaded) return <h1 className="text-center text-lg">Loading...</h1>;
+  if (!isLoaded) return <div className="flex justify-center items-center min-h-screen text-3xl fontbold">
+    <p className="text-3xl fontbold mr-5">Loading</p>
+    <Loader2 className="animate-spin"/></div>
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    setError("");
     try {
       setIsSignUp(true);
       if (!signUp) {
@@ -48,13 +54,14 @@ export default function SignUp() {
       setError(err.errors[0].message);
     } finally {
       setIsSignUp(false);
+      setError("");
     }
   }
 
   async function onPressVerify(e: React.FormEvent) {
     e.preventDefault();
+    setError("");
     try {
-      setError("");
       setIsVerify(true);
       if (!signUp) {
         throw new Error("SignUp object is not loaded.");
@@ -74,10 +81,22 @@ export default function SignUp() {
 
   return (
     <div className=" flex justify-center items-center mt-40 w-full">
- 
-      <Card className="w-[300px] md:w-[350px]  shadow-xl backdrop-blur-md bg-white border border-white/30">
+ <div className="w-full absolute inset-0 ">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+
+
+        />
+      </div>
+      <Card className="relative w-[350px] overflow-hidden bg-gray-950 shadow-lg rounded-lg p-3 text-white">  
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-center text-gray-800">
+          <CardTitle className="text-3xl font-bold text-center ">
             Sign Up for Algotron
           </CardTitle>
         </CardHeader>
@@ -85,42 +104,45 @@ export default function SignUp() {
           {!pendingVerification ? (
             <form onSubmit={submit} className="space-y-5">
               <div>
-                <Label className="text-lg">First Name</Label>
+                <Label className="text-2xl">First Name</Label>
                 <Input
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="John"
                   required
-                  className="focus:ring-indigo-500"
+                  className="focus:ring-indigo-500 p-6 text-2xl"
                 />
               </div>
               <div>
-                <Label className="text-lg">Last Name</Label>
+                <Label className="text-2xl">Last Name</Label>
                 <Input
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
+                  className=" p-6 text-2xl"
                   required
                 />
               </div>
               <div>
-                <Label className="text-lg">Email</Label>
+                <Label className="text-2xl">Email</Label>
                 <Input
                   type="email"
                   value={emailAddress}
                   onChange={(e) => setEmailAddress(e.target.value)}
+                  className=" p-6 text-2xl"
                   placeholder="john@example.com"
                   required
                 />
               </div>
               <div>
-                <Label className="text-lg">Password</Label>
+                <Label className="text-2xl">Password</Label>
                 <div className="relative">
                   <Input
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="John#12345"
+                  className=" p-6 text-2xl"
                     required
                   />
                   <button
@@ -131,6 +153,7 @@ export default function SignUp() {
                     {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                   </button>
                 </div>
+                  <p className="my-4 text-gray-500 text-lg">Note: Use strong Password of 8 characters with symbols</p>
               </div>
               {error && (
                 <Alert variant="destructive">
@@ -140,17 +163,18 @@ export default function SignUp() {
               <Button
                 type="submit"
                 disabled={isSignUp}
-                className="w-full bg-purple-600  text-white"
+                className="w-full bg-purple-600 py-6 text-white text-2xl"
               >
                 {isSignUp ? "Signing Up..." : "Sign Up"}
               </Button>
             </form>
           ) : (
             <form onSubmit={onPressVerify} className="space-y-4">
-              <Label>Verification Code</Label>
+              <Label className="text-2xl">Verification Code</Label>
               <Input
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
+                className=" p-6 text-2xl"
                 placeholder="Enter verification code"
                 required
               />
@@ -169,13 +193,15 @@ export default function SignUp() {
             </form>
           )}
         </CardContent>
-        <CardFooter className="justify-center text-sm text-gray-600">
+        <CardFooter className="justify-center text-xl text-gray-200">
           Already have an account?{" "}
-          <Link href="/sign-in" className="text-indigo-600 ml-1 underline">
+          <Link href="/sign-in" className="text-purple-600 font-bold  ml-4 underline">
             Sign in
           </Link>
         </CardFooter>
+        <BorderBeam duration={6} size={300} />
       </Card>
+      <Navbar/>
     </div>
 
   );

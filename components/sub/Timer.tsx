@@ -51,7 +51,7 @@ const Timer: React.FC = () => {
     <section className="timer-container">
       <section className="timer absolute left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="timer-class">
-          <div className="flex font-space gap-1 text-4xl sm:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA]">
+          <div className="flex font-space gap-1 text-7xl sm:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA]">
             <div className="flex flex-col gap-2 text-center">
               <span>{String(timeLeft.days).padStart(2, '0')}</span>
               <span className="text-sm lg:text-lg">Days</span>
