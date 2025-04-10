@@ -75,9 +75,12 @@ const EventRegistration = () => {
         }
       )
       console.log('Success:', response)
-      toast.success('Registration successful! ✅')
+      toast.success('Registration successful! ✅', {
+        autoClose: 1500,
+        onClose: () => router.push('/dashboard')
+      })
       setIsLoading(false)
-      router.push('/dashboard')
+     
     } catch (error) {
       console.error('Appwrite error:', error)
       toast.error('Something went wrong while submitting the form ❌')
