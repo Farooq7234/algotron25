@@ -5,6 +5,7 @@ import './responsive.css'
 import {Space_Grotesk, Bebas_Neue} from 'next/font/google'
 import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from 'react-toastify';
+import { SparklesCore } from '@/components/ui/sparkles'
 const inter = Inter({ subsets: ['latin'] })
 
 const space = Space_Grotesk({
@@ -27,6 +28,19 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en" className={`${space.variable}`}>
+    <div className="w-full absolute inset-0 ">
+        <SparklesCore
+          id="tsparticlesfullpage"
+          background="transparent"
+          minSize={0.6}
+          maxSize={1.4}
+          particleDensity={100}
+          className="w-full h-full"
+          particleColor="#FFFFFF"
+
+
+        />
+      </div>
       <body className={`${inter.className} bg-[#030014] overflow-y-auto overflow-x-hidden `}>{children}</body>
     </html>
     </ClerkProvider>

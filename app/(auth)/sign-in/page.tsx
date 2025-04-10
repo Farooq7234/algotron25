@@ -66,19 +66,8 @@ export default function SignIn() {
   return (
     <div className="flex items-center justify-center min-h-screen ">
        <div className="w-full absolute inset-0 ">
-              <SparklesCore
-                id="tsparticlesfullpage"
-                background="transparent"
-                minSize={0.6}
-                maxSize={1.4}
-                particleDensity={100}
-                className="w-full h-full"
-                particleColor="#FFFFFF"
-      
-      
-              />
             </div>
-      <Card className="relative w-[350px] overflow-hidden bg-gray-950 shadow-lg rounded-lg p-3 py-14 text-white">
+      <Card className="relative w-[350px] overflow-hidden bg-gray-900 shadow-lg rounded-lg p-3 py-14 text-white">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center">
             Sign In to Algotron

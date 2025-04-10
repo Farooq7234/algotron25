@@ -18,7 +18,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import Navbar from "@/components/main/Navbar";
-import  {SparklesCore}  from "@/components/ui/sparkles";
+
 
 
 export default function SignUp() {
@@ -79,20 +79,8 @@ export default function SignUp() {
 
   return (
     <div className=" flex justify-center items-center mt-40 w-full">
- <div className="w-full absolute inset-0 ">
-        <SparklesCore
-          id="tsparticlesfullpage"
-          background="transparent"
-          minSize={0.6}
-          maxSize={1.4}
-          particleDensity={100}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
 
-
-        />
-      </div>
-      <Card className="relative w-[350px] overflow-hidden bg-gray-950 shadow-lg rounded-lg p-3 text-white">  
+      <Card className="relative w-[350px] overflow-hidden bg-gray-900 shadow-lg rounded-lg p-3 text-white">  
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center ">
             Sign Up for Algotron
@@ -117,7 +105,7 @@ export default function SignUp() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
-                  className=" p-6 text-2xl"
+                  className=" p-6 text-lg"
                   required
                 />
               </div>
@@ -127,7 +115,7 @@ export default function SignUp() {
                   type="email"
                   value={emailAddress}
                   onChange={(e) => setEmailAddress(e.target.value)}
-                  className=" p-6 text-2xl"
+                  className=" p-6 text-lg"
                   placeholder="john@example.com"
                   required
                 />
