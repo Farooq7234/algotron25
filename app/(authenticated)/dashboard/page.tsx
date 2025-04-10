@@ -56,7 +56,7 @@ const Dashboard = () => {
                 <Calendar className="w-10 h-10 text-purple-300" />
               </div>
               <p className="text-xl md:text-2xl text-gray-200 mb-3 font-medium">No registrations found</p>
-              <p className="text-gray-400 mb-8">You haven't registered for any events yet.</p>
+              <p className="text-gray-400 mb-8">You haven&apos;t registered for any events yet.</p>
               <button
                 onClick={() => router.push('/event-registration')}
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 text-base shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50"
