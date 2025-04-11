@@ -105,7 +105,7 @@ export default function SignUp() {
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Doe"
-                  className=" p-6 text-lg"
+                  className=" p-6 text-2xl"
                   required
                 />
               </div>
@@ -115,7 +115,7 @@ export default function SignUp() {
                   type="email"
                   value={emailAddress}
                   onChange={(e) => setEmailAddress(e.target.value)}
-                  className=" p-6 text-lg"
+                  className=" p-6 text-2xl"
                   placeholder="john@example.com"
                   required
                 />

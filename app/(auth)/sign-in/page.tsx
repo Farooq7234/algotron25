@@ -18,7 +18,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import Navbar from "@/components/main/Navbar";
-import { SparklesCore } from "@/components/ui/sparkles";
+
 
 export default function SignIn() {
   const { isLoaded, signIn, setActive } = useSignIn();
@@ -51,7 +51,7 @@ export default function SignIn() {
 
       if (result.status === "complete") {
         await setActive({ session: result.createdSessionId });
-        router.push("/event-registration");
+        router.push("/dashboard");
       } else {
         console.error(JSON.stringify(result, null, 2));
       }
@@ -76,25 +76,27 @@ export default function SignIn() {
         <CardContent>
           <form onSubmit={submit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-2xl">Email</Label>
+              <Label htmlFor="email" className="text-xl">Email</Label>
               <Input
                 type="email"
                 id="email"
                 value={emailAddress}
                 onChange={(e) => setEmailAddress(e.target.value)}
-                className="p-5 text-4xl "
+                className=" p-6 text-2xl"
+                
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-2xl">Password</Label>
+              <Label htmlFor="password" className="text-xl">Password</Label>
               <div className="relative">
                 <Input
                   type={showPassword ? "text" : "password"}
                   id="password"
                   value={password}
+                  className=" p-6 text-2xl"
                   onChange={(e) => setPassword(e.target.value)}
-                className="p-5 text-4xl"
+
 
                   required
                 />

@@ -6,7 +6,17 @@ import { databases } from '@/lib/appwrite'
 import conf from '@/lib/conf'
 import { useUser } from '@clerk/nextjs'
 import { Query } from 'appwrite'
-import { Loader2, Calendar, Building2, Phone, Receipt, Target } from 'lucide-react'
+import {
+  Loader2,
+  Calendar,
+  Building2,
+  Phone,
+  Receipt,
+  Target,
+  BadgeCheck,
+  Clock,
+  Ban
+} from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { BorderBeam } from '@/components/magicui/border-beam'
 
@@ -35,6 +45,31 @@ const Dashboard = () => {
 
     fetchData()
   }, [user?.id])
+
+  const getPaymentStatus = (status: boolean | undefined) => {
+    if (status === true) {
+      return {
+        label: 'Payment Approved',
+        icon: <BadgeCheck className="w-4 h-4 mr-2" />,
+        style: 'bg-green-500/10 text-green-400 border border-green-500/30'
+      }
+    } else if (status === false) {
+      return {
+        label: 'Payment Pending',
+        icon: <Clock className="w-4 h-4 mr-2" />,
+        style: 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/30'
+      }
+    } else {
+      // Fallback if value is missing or undefined
+      return {
+        label: 'Status Unknown',
+        icon: <Ban className="w-4 h-4 mr-2" />,
+        style: 'bg-gray-600/10 text-gray-400 border border-gray-600/30'
+      }
+    }
+  }
+  
+  
 
   return (
     <>
@@ -66,75 +101,86 @@ const Dashboard = () => {
             </div>
           ) : (
             <div className="w-full grid gap-8">
-              {data.map((doc) => (
-                <div
-                  key={doc.$id}
-                  className="bg-gradient-to-br from-[#1b1b36]/80 to-[#111123]/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-xl border border-gray-700/30 hover:shadow-purple-600/20 transition duration-500 transform hover:-translate-y-1"
-                >
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700/50 pb-5 mb-6">
-                    <h3 className="text-3xl md:text-4xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 capitalize">
-                      {doc.name}
-                    </h3>
-                    <div className="mt-4 md:mt-0 bg-green-500/10 text-green-400 font-bold px-4 py-2 rounded-full flex items-center">
-                      <span className="text-lg md:text-xl">₹{doc.amount}</span>
-                    </div>
-                  </div>
+              {data.map((doc) => {
+                const status = getPaymentStatus(doc.paymentapproval)
 
-                  <div className="grid gap-5 text-base md:text-lg text-gray-300">
-                    <div className="flex items-center gap-3">
-                      <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                      <div>
-                        <span className="font-medium text-gray-200">College:</span> 
-                        <span className="ml-2 capitalize">{doc.college}</span>
+                return (
+                  <div
+                    key={doc.$id}
+                    className="bg-gradient-to-br from-[#1b1b36]/80 to-[#111123]/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-xl border border-gray-700/30 hover:shadow-purple-600/20 transition duration-500 transform hover:-translate-y-1"
+                  >
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700/50 pb-5 mb-6">
+                      <h3 className="text-3xl md:text-4xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 capitalize">
+                        {doc.name}
+                      </h3>
+                      <div className="mt-4 md:mt-0 bg-green-500/10 text-green-400 font-bold px-4 py-2 rounded-full flex items-center">
+                        <span className="text-lg md:text-xl">₹{doc.amount}</span>
                       </div>
                     </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                      <div>
-                        <span className="font-medium text-gray-200">Department:</span> 
-                        <span className="ml-2">{doc.department}</span>
+
+                    <div className="grid gap-5 text-base md:text-lg text-gray-300">
+                      <div className="flex items-center gap-3">
+                        <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">College:</span>
+                          <span className="ml-2 capitalize">{doc.college}</span>
+                        </div>
                       </div>
+
+                      <div className="flex items-center gap-3">
+                        <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">Department:</span>
+                          <span className="ml-2">{doc.department}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <Phone className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">Phone:</span>
+                          <span className="ml-2">{doc.phone}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <Receipt className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">Transaction ID:</span>
+                          <span className="ml-2 font-mono">{doc.transactionId}</span>
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3">
+                        <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium ${status.style}`}>
+                          {status.icon}
+                          {status.label}
+                        </div>
+                      </div>
+
+                      <div className="mt-2">
+                        <div className="flex items-center gap-3 mb-3">
+                          <Target className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                          <span className="font-medium text-gray-200">Selected Events:</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2 pl-8">
+                          {doc.selectedEvents
+                            ? JSON.parse(doc.selectedEvents).map((event: string, index: number) => (
+                                <span
+                                  key={index}
+                                  className="inline-block bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-purple-200 px-4 py-2 rounded-full text-sm border border-purple-500/30"
+                                >
+                                  {event}
+                                </span>
+                              ))
+                            : <span className="text-gray-400">N/A</span>}
+                        </div>
+                      </div>
+                      <BorderBeam duration={6} size={200} />
                     </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <Phone className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                      <div>
-                        <span className="font-medium text-gray-200">Phone:</span> 
-                        <span className="ml-2">{doc.phone}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-3">
-                      <Receipt className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                      <div>
-                        <span className="font-medium text-gray-200">Transaction ID:</span> 
-                        <span className="ml-2 font-mono">{doc.transactionId}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-2">
-                      <div className="flex items-center gap-3 mb-3">
-                        <Target className="w-5 h-5 text-purple-400 flex-shrink-0" />
-                        <span className="font-medium text-gray-200">Selected Events:</span>
-                      </div>
-                      <div className="flex flex-wrap gap-2 pl-8">
-                        {doc.selectedEvents
-                          ? JSON.parse(doc.selectedEvents).map((event: string, index: number) => (
-                              <span
-                                key={index}
-                                className="inline-block bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-purple-200 px-4 py-2 rounded-full text-sm border border-purple-500/30"
-                              >
-                                {event}
-                              </span>
-                            ))
-                          : <span className="text-gray-400">N/A</span>}
-                      </div>
-                    </div>
-                  <BorderBeam duration={6} size={200}/>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>

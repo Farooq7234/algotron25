@@ -32,6 +32,7 @@ const EventRegistration = () => {
     phone: '',
     transactionId: '',
     selectedEvents: [] as string[],
+    paymentapproval:false
    
   })
 

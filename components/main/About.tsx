@@ -55,7 +55,7 @@ const About = () => {
           <p className='Welcome-text font-space'>National Level Technical Symposium!</p>
           </h2>
           <motion.p
-          className="mt-9 sm:mt-0 text-2xl lg:text-3xl font-space text-justify"
+          className="mt-9 sm:mt-0 text-2xl lg:text-4xl font-space text-justify"
           variants={fadeInVariants} 
           >
           
