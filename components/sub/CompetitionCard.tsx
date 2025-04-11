@@ -1,54 +1,67 @@
 'use client';
-import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { BeatLoader } from 'react-spinners';
-
+import StarsCanvas from '../main/StarCanvas';
+import Image from 'next/image';
 interface CardProps {
   imageSrc: string;
-  title: string;
   initialDescription: string;
   linkTo: string;
   onClick?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ imageSrc, title, initialDescription, linkTo , onClick}) => {
+const Card: React.FC<CardProps> = ({
+  imageSrc,
+  initialDescription,
+  linkTo,
+  onClick,
+}) => {
   const [imageLoading, setImageLoading] = useState(true);
 
   useEffect(() => {
-    const loaderTimeout = setTimeout(() => {
-      setImageLoading(false);
-    }, 2000);
-    return () => {
-      clearTimeout(loaderTimeout);
-    };
+    const timer = setTimeout(() => setImageLoading(false), 1200);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className='px-[10px] lg:p-0' onClick={onClick}>
-      <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
-        <div className="h-[600px] w-[400px] flex justify-center items-center relative">
-          {imageLoading && (
-            <div className="absolute inset-0 flex justify-center items-center">
-              <BeatLoader color="#ffffff" loading={imageLoading} size={15} />
-            </div>
-          )}
-          <img
-            className={`h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125 ${imageLoading ? 'hidden' : ''}`}
-            src={imageSrc}
-            alt=""
-            onLoad={() => setImageLoading(false)}
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/80 group-hover:to-black/90"></div>
-        <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
-          <p className="mb-10 text-3xl text-white opacity-0 transition-opacity duration-800 group-hover:opacity-100">{initialDescription}</p>
-          <Link href={linkTo} target='_blank'>
-            <button
-              className="rounded-full bg-blue-900 py-2 px-3.5 font-com text-4xl capitalize text-white shadow shadow-black/60"
-            >
-              See Rules
-            </button>
-          </Link>
+    <div
+      className="px-4 lg:px-0"
+      onClick={onClick}
+    >
+          <div
+      className="px-4 lg:px-0 cursor-pointer"
+      onClick={onClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && onClick?.()}
+    />
+
+    
+      <div className="relative group transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98] w-[400px]">
+        {/* Glowing Canvas Background */}
+        <div className="absolute -top-14 -left-14 w-72 h-72 bg-pink-500 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
+        <div className="absolute -bottom-14 -right-14 w-72 h-72 bg-cyan-400 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
+
+        {/* Card Wrapper */}
+        <div className="relative z-10 bg-gradient-to-br from-[#1e1b4b] via-[#1e293b] to-[#0f172a] rounded-2xl overflow-hidden shadow-xl transition-all duration-300 w-full max-w-[400px] lg:max-w-[480px] mx-auto">
+          <div className="h-[350px] w-full flex items-center justify-center overflow-hidden rounded-t-2xl">
+            {imageLoading ? (
+              <div className="flex justify-center items-center w-full h-full bg-black/50">
+                <BeatLoader color="#ffffff" size={10} />
+              </div>
+            ) : (
+              <Image
+                src={imageSrc}
+                width={400}
+                height={400}
+                alt={'Competition Image'}
+                className="object-cover w-full h-full"
+                onLoad={() => setImageLoading(false)}
+              />
+            )}
+          </div>
+
+        
         </div>
       </div>
     </div>
