@@ -45,7 +45,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/idea.jpg",
+      imageSrc: "/images/events/Idea.jpg",
       title: "Idea Presentation",
       description: "Battle your bots in an arena of sparks, tactics, and destruction!",
       linkTo: "https://your-link.com/robotics",
