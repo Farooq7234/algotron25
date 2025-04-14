@@ -40,7 +40,7 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
   console.log(rounds)
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 pt-20 sm:pt-32 my-8">
+    <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 pt-56 sm:pt-32 my-8">
       <div
         ref={modalRef}
         className="relative bg-[#111111] text-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-screen sm:max-h-[90vh] overflow-y-auto p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent"
@@ -48,7 +48,7 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white text-4xl hover:text-red-500 transition"
+          className="absolute top-8 sm:top-4 right-4 text-white text-4xl hover:text-red-500 transition"
           aria-label="Close"
         >
           &times;
