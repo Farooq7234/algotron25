@@ -120,7 +120,7 @@ const Dashboard = () => {
 
                     <div className="grid gap-5 text-base md:text-lg text-gray-300">
                       <div className="flex items-center gap-3">
-                        <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <Building2 className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
                           <span className="font-medium text-gray-200">College:</span>
                           <span className="ml-2 capitalize">{doc.college}</span>
@@ -128,7 +128,7 @@ const Dashboard = () => {
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <Building2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <Building2 className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
                           <span className="font-medium text-gray-200">Department:</span>
                           <span className="ml-2">{doc.department}</span>
@@ -136,7 +136,7 @@ const Dashboard = () => {
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <Phone className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <Phone className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
                           <span className="font-medium text-gray-200">Phone:</span>
                           <span className="ml-2">{doc.phone}</span>
@@ -144,7 +144,7 @@ const Dashboard = () => {
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <Receipt className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                        <Receipt className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
                           <span className="font-medium text-gray-200">Transaction ID:</span>
                           <span className="ml-2 font-mono">{doc.transactionId}</span>
@@ -155,12 +155,16 @@ const Dashboard = () => {
                         <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium ${status.style}`}>
                           {status.icon}
                           {status.label}
+                          
                         </div>
                       </div>
+                        <p className="text-sm md:text-base  text-gray-400">
+                        ⚠️ Your payment approval is processed manually by our admin team. Please allow some time after your transaction for it to be verified.
+</p>
 
                       <div className="mt-2">
                         <div className="flex items-center gap-3 mb-3">
-                          <Target className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                          <Target className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                           <span className="font-medium text-gray-200">Selected Events:</span>
                         </div>
                         <div className="flex flex-wrap gap-2 pl-8">
@@ -176,8 +180,8 @@ const Dashboard = () => {
                             : <span className="text-gray-400">N/A</span>}
                         </div>
                       </div>
-                      <BorderBeam duration={6} size={200} />
                     </div>
+                      <BorderBeam duration={6} size={200} />
                   </div>
                 )
               })}

@@ -18,6 +18,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import Navbar from "@/components/main/Navbar";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
@@ -34,6 +35,7 @@ export default function SignUp() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isVerify, setIsVerify] = useState(false);
   const router = useRouter();
+  
 
   if (!isLoaded) return <div className="flex justify-center items-center min-h-screen text-3xl fontbold">
     <p className="text-3xl fontbold mr-5">Loading</p>
@@ -49,6 +51,7 @@ export default function SignUp() {
       }
       await signUp.create({ firstName, lastName, emailAddress, password });
       await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
+      toast.success("OTP has been sent to your email. Please check and verify.");
       setPendingVerification(true);
     } catch (err: any) {
       setError(err.errors[0].message);
@@ -78,7 +81,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className=" flex justify-center items-center mt-40 w-full">
+    <div className={`flex justify-center items-center w-full ${pendingVerification ? "min-h-screen pt-24" : "mt-60"}`}>
 
       <Card className="relative w-[350px] overflow-hidden bg-gray-900 shadow-lg rounded-lg p-3 text-white">  
         <CardHeader>
@@ -187,6 +190,7 @@ export default function SignUp() {
         </CardFooter>
         <BorderBeam duration={6} size={300} />
       </Card>
+      <ToastContainer style={{ zIndex: 9999 }} />
       <Navbar/>
     </div>
 

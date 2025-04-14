@@ -57,11 +57,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`flex justify-between items-center w-full h-28 p-5 text-white z-[9999] fixed top-0 left-0 ${nav ? 'nav-open' : ''}`} style={{ backgroundColor: '#030014' }}>
+    <div className={`flex justify-between items-center w-full h-28 p-5 text-white z-[999] fixed top-0 left-0 ${nav ? 'nav-open' : ''}`} style={{ backgroundColor: '#030014' }}>
       <motion.div variants={slideInFromRight(40)} className="py-5 px-3">
         <div className='flex items-center mb-2'>
           <Link href="/">
-            <img src='/algotron_logo.png' alt='Logo' className='h-13 object-contain w-52' />
+            <img src='/algotron_logo.png' alt='Logo' className='h-13 object-contain w-40' />
           </Link>
         </div>
       </motion.div>
@@ -70,7 +70,7 @@ const Navbar = () => {
         {links.map(({ id, name, link }) => (
           <li
             key={id}
-            className={`text-3xl nav-links px-4 py-2 cursor-pointer hover:scale-105 capitalize hover:text-white duration-200 font-light
+            className={`text-3xl nav-links px-4 py-2 cursor-pointer hover:scale-105 capitalize hover:text-white duration-200 
               bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold`}
           >
             <Link href={link}>{name}</Link>
@@ -102,7 +102,7 @@ const Navbar = () => {
           {links.map(({ id, name, link }) => (
             <li
               key={id}
-              className={`px-4 cursor-pointer capitalize py-6 font-light text-4xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold`}
+              className={`px-4 cursor-pointer capitalize py-6  text-4xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold`}
             >
               <Link onClick={toggleNav} href={link}>
                 {name}

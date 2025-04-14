@@ -3,7 +3,7 @@ import React from 'react'
 
 function page() {
   return (
-    <><div className="flex flex-col h-[950px] gap-20 bg-contain bg-fixed">
+    <><div className="overflow-x-hidden">
     {/* <StarsCanvas/> */}
     <Technical types='Technical Fest'/>
   </div></>
