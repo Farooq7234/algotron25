@@ -35,7 +35,7 @@ const Home: React.FC = () => {
         <>
       
       
-<div className=" relative w-full ">
+<div className=" relative w-full overflow-x-hidden">
       <div className="w-full absolute inset-0 ">
         <ScrollProgress className="top-[70px]" />
         <SparklesCore
