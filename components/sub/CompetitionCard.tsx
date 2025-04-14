@@ -37,7 +37,7 @@ const Card: React.FC<CardProps> = ({
     />
 
     
-      <div className="relative group transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98] w-[400px]">
+      <div className="relative group transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98] w-[320px]">
         {/* Glowing Canvas Background */}
         <div className="absolute -top-14 -left-14 w-72 h-72 bg-pink-500 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
         <div className="absolute -bottom-14 -right-14 w-72 h-72 bg-cyan-400 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
