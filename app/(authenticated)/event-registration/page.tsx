@@ -36,6 +36,11 @@ const EventRegistration = () => {
    
   })
 
+  function generateUID() {
+    const randomPart = Math.floor(1000 + Math.random() * 9000); // 4-digit random number
+    return randomPart.toString(); 
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData({ ...formData, [name]: value })
@@ -64,6 +69,7 @@ const EventRegistration = () => {
     e.preventDefault()
     setIsLoading(true)
     try {
+      const uid = generateUID();
       const response = await databases.createDocument(
         conf.appwriteDatabaseId,         // Replace with your database ID
         conf.appwriteCollectionId,       // Replace with your collection ID
@@ -72,7 +78,8 @@ const EventRegistration = () => {
           ...formData,
           selectedEvents: JSON.stringify(formData.selectedEvents),
           id:user?.id,
-          amount:totalPrice 
+          amount:totalPrice ,
+          uid: uid,
         }
       )
       console.log('Success:', response)

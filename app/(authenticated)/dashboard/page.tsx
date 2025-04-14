@@ -15,7 +15,8 @@ import {
   Target,
   BadgeCheck,
   Clock,
-  Ban
+  Ban,
+  IdCard
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { BorderBeam } from '@/components/magicui/border-beam'
@@ -119,6 +120,13 @@ const Dashboard = () => {
                     </div>
 
                     <div className="grid gap-5 text-base md:text-lg text-gray-300">
+                      <div className="flex items-center gap-3">
+                        <IdCard className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">UID:</span>
+                          <span className="ml-2 capitalize">{doc.uid}</span>
+                        </div>
+                      </div>
                       <div className="flex items-center gap-3">
                         <Building2 className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
