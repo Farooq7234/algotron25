@@ -13,22 +13,8 @@ const Hero: React.FC = () => {
   const shadowColor = "white";
   return (
     <section className='relative flex flex-col items-center justify-center min-h-screen overflow-hidden'>
-      {/* Sparkles Background (full screen) */}
-      <div className="w-full absolute inset-0 h-screen pointer-events-none">
-        <SparklesCore
-          background="transparent"
-          minSize={0.4}
-          maxSize={1}
-          particleDensity={80}
-          className="w-full h-full"
-          particleColor="#FFFFFF"
-        />
-      </div>
-
-    
-
       {/* Main Content Container */}
-      <div className='flex flex-col items-center justify-center z-20 w-full px-4 py-24 space-y-20'>
+      <div className='flex flex-col items-center justify-center  w-full px-4 py-24 space-y-20'>
 
         {/* Title Section */}
         <motion.div 
