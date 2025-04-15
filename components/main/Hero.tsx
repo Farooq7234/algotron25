@@ -12,7 +12,7 @@ import { LineShadowText } from '../magicui/line-shadow-text';
 const Hero: React.FC = () => {
   const shadowColor = "white";
   return (
-    <section className='relative flex flex-col items-center justify-center min-h-screen bg-black overflow-hidden'>
+    <section className='relative flex flex-col items-center justify-center min-h-screen overflow-hidden'>
       {/* Sparkles Background (full screen) */}
       <div className="w-full absolute inset-0 h-screen pointer-events-none">
         <SparklesCore

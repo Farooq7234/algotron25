@@ -31,7 +31,7 @@ const Home: React.FC = () => {
 
   return (
     <main
-      className="h-full w-full bg-[#030014] " >
+      className="h-full w-full " >
       {loading ? (
         <div className="flex items-center justify-center h-screen">
           <Loading/>
@@ -56,11 +56,10 @@ const Home: React.FC = () => {
       <FlareCursor/>
       <Hero />
       <About />
-        <ImageGallery/>
+      <ImageGallery/>
       <Events/>
       <Faculty/>
       <SponsorSection/>
-      <Questions/>
       <Contact/>
       <Questions/>
       <Footer />
