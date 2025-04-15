@@ -35,7 +35,7 @@ const Card: React.FC<CardProps> = ({
 
         <CardBody className="relative z-10 bg-gradient-to-br from-[#210f2f] via-[#040818] to-[#0f172a] border border-white/10 rounded-2xl p-6 w-[320px]  h-full">
       <BorderBeam delay={6} size={200}/>
-          <CardItem translateZ="60" className="h-[250px] w-full overflow-hidden rounded-xl">
+          <CardItem translateZ="60" className="h-[300px] w-full overflow-hidden rounded-xl">
             {imageLoading ? (
               <div className="flex justify-center items-center w-full h-full bg-black/50 rounded-xl">
                 <BeatLoader color="#ffffff" size={10} />
