@@ -5,7 +5,7 @@ import Card from "../sub/CompetitionCard";
 import ExpandableCardModal from "../ui/ExpandableCardModal";
 import FlareCursor from "./Cursor";
 import Navbar from "@/components/main/Navbar";
-import Footer from "./Footer";
+
 
 interface Types {
   types: string;
@@ -118,21 +118,21 @@ const NonTechnical: React.FC<Types> = ({ types }) => {
   };
   return (
     <div className="relative min-h-screen  text-white">
-      <Navbar />
+      {/* <Navbar /> */}
       <FlareCursor />
 
-      <h1 className="pt-28 text-center text-3xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-pink-300 to-yellow-200 bg-clip-text font-space m-10 my-10">
+      <h1 className="pt-28 text-center text-5xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-pink-300 to-yellow-200 bg-clip-text font-space m-10 my-10">
         {types}
       </h1>
 
       {/* Cards */}
-      <div className="flex flex-col items-center justify-center px-4 pb-10">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
+      <div className="flex flex-col items-center justify-center px-4 pb-10 w-full ">
+        <div className="grid grid-cols-1 gap-x-40 md:grid-cols-2 lg:grid-cols-3">
           {cardDataList.map((card, idx) => (
             <Card
               key={idx}
               imageSrc={card.imageSrc}
-              initialDescription={card.description}
+              initialDescription={''}
               linkTo={card.linkTo}
               onClick={() => handleCardClick(card)}
             />
@@ -156,7 +156,7 @@ const NonTechnical: React.FC<Types> = ({ types }) => {
   />
 )}
 
-      <Footer />
+
     </div>
   );
 };

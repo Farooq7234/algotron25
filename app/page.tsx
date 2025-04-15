@@ -11,6 +11,7 @@ import Events from '@/components/main/Event';
 import Contact from '@/components/main/Contact';
 import { SparklesCore } from '@/components/ui/sparkles';
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import SponsorSection from '@/components/main/Sponsors';
 import Faculty from '@/components/main/Faculty';
 
 const Home: React.FC = () => {
@@ -54,6 +55,8 @@ const Home: React.FC = () => {
       <About />
       <Events/>
       <Faculty/>
+      <SponsorSection/>
+      <Questions/>
       <Contact/>
       <Questions/>
       <Footer />

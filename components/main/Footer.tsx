@@ -27,6 +27,9 @@ const Footer: React.FC = () => {
           <span className="text-2xl">Follow us on Instagram!</span>
         </Link>
       </div>
+      <span className="mt-12 text-lg md:text-xl text-gray-400 font-semibold tracking-wide">
+      Made with 💜 by  <span className="text-purple-400 inline">CSE Department</span>.
+      </span>
     </footer>
   );
 };

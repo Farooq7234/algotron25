@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import Card from "../sub/CompetitionCard";
 import ExpandableCardModal from "../ui/ExpandableCardModal";
 import FlareCursor from "./Cursor";
-import Footer from "./Footer";
+
 
 interface Types {
   types: string;
@@ -108,18 +108,18 @@ const Technical: React.FC<Types> = ({ types }) => {
  <>   <div className="relative  text-white w-full">
  <FlareCursor />
 
- <h1 className="pt-28 text-center text-4xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space m-10 my-10">
+ <h1 className="pt-28 text-center text-5xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space m-10 my-10">
    {types}
  </h1>
 
  {/* Cards */}
  <div className="flex flex-col items-center justify-center px-4 pb-10">
-   <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
+   <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
      {cardDataList.map((card, idx) => (
        <Card
          key={idx}
          imageSrc={card.imageSrc}
-         initialDescription={card.description}
+         initialDescription={''}
          linkTo={card.linkTo}
          onClick={() => handleCardClick(card)}
        />
@@ -145,7 +145,7 @@ rules={selectedEvent.rules}
 
 
 </div>
-<Footer />
+
 </>
   );
 };
