@@ -15,6 +15,8 @@ import Image from 'next/image';
 import ImageGallery from '@/components/main/ImageGallery';
 
 
+import SponsorSection from '@/components/main/Sponsors';
+import Faculty from '@/components/main/Faculty';
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -56,8 +58,11 @@ const Home: React.FC = () => {
       <About />
         <ImageGallery/>
       <Events/>
+      <Faculty/>
+      <SponsorSection/>
       <Questions/>
       <Contact/>
+      <Questions/>
       <Footer />
 
     </div>

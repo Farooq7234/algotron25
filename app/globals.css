@@ -957,6 +957,16 @@ body.active { overflow: hidden; }
 
     --radius: 0.5rem;
 
+    --color-1: 0 100% 63%;
+
+    --color-2: 270 100% 63%;
+
+    --color-3: 210 100% 63%;
+
+    --color-4: 195 100% 63%;
+
+    --color-5: 90 100% 63%;
+
   }
   .dark {
 
@@ -1007,6 +1017,28 @@ body.active { overflow: hidden; }
     --chart-4: 280 65% 60%;
 
     --chart-5: 340 75% 55%;
+
+    --color-1: 0 100% 63%;
+
+    --color-2: 270 100% 63%;
+
+    --color-3: 210 100% 63%;
+
+    --color-4: 195 100% 63%;
+
+    --color-5: 90 100% 63%;
+
+  }
+  .theme {
+
+    --rainbow: rainbow var(--speed, 2s) infinite linear;
+
+  }
+  .theme {
+
+    --animate-marquee: marquee var(--duration) infinite linear;
+
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
   }
   .theme {
