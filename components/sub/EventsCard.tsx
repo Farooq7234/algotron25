@@ -10,7 +10,7 @@ interface EventsCardProps {
 
 const EventsCard: React.FC<EventsCardProps> = ({ title, imageSrc, name, href }) => {
   return (
-    <div className="text-white  py-10 ">
+    <div className="text-white  py-10">
       <h1 className='text-center sm:text-5xl text-4xl font-semibold text-gray-300 font-space mb-8'>{title}</h1>
 
       <Link href={href}>
