@@ -9,34 +9,14 @@ import { useAuth, SignOutButton } from "@clerk/nextjs";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const { isSignedIn } = useAuth(); 
+  const { isSignedIn } = useAuth();
 
   const links = [
-    {
-      id: 1,
-      name: "Home",
-      link: "/",
-    },
-    {
-      id: 2,
-      name: "About",
-      link: "#about",
-    },
-    {
-      id: 3,
-      name: "Events",
-      link: "#events",
-    },
-    {
-      id: 4,
-      name: "FAQs",
-      link: "#faqs",
-    },
-    {
-      id: 5,
-      name: "Contact",
-      link: "#contact",
-    }
+    { id: 1, name: "Home", link: "/" },
+    { id: 2, name: "About", link: "#about" },
+    { id: 3, name: "Events", link: "#events" },
+    { id: 4, name: "FAQs", link: "#faqs" },
+    { id: 5, name: "Contact", link: "#contact" }
   ];
 
   const handleResize = () => {
@@ -66,12 +46,13 @@ const Navbar = () => {
         </div>
       </motion.div>
 
+      {/* Desktop Nav */}
       <ul className="hidden md:flex md:items-center">
         {links.map(({ id, name, link }) => (
           <li
             key={id}
-            className={`text-3xl nav-links px-4 py-2 cursor-pointer hover:scale-105 capitalize hover:text-white duration-200 
-              bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold`}
+            className="text-3xl nav-links px-4 py-2 cursor-pointer hover:scale-105 capitalize hover:text-white duration-200 
+              bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold"
           >
             <Link href={link}>{name}</Link>
           </li>
@@ -93,20 +74,27 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div onClick={toggleNav} className="cursor-pointer font-space pr-4 z-10 text-white text-2xl md:hidden">
+      {/* Hamburger Icon (Visible on Mobile) */}
+      <div
+        onClick={toggleNav}
+        className="cursor-pointer font-space z-50 text-white text-2xl md:hidden fixed top-8 right-8"
+      >
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
       </div>
 
+      {/* Mobile Nav */}
       {nav && (
         <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-gray-800 z-20">
           {links.map(({ id, name, link }) => (
             <li
               key={id}
-              className={`px-4 cursor-pointer capitalize py-6  text-4xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold`}
+              className="px-4 cursor-pointer capitalize py-6 text-4xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold"
             >
-              <Link onClick={toggleNav} href={link}>
-                {name}
-              </Link>
+              <div onClick={toggleNav}>
+                <Link href={link} scroll={false}>
+                  {name}
+                </Link>
+              </div>
             </li>
           ))}
           <li className="mt-4">

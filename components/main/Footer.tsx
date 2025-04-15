@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       {/* Location Pill */}
       <div className="flex justify-center mb-8">
         <div className="flex items-center gap-2 border border-[#2c2c2c] px-6 py-3 rounded-full bg-[#0f0f0f]">
-          <FaMapMarkerAlt className="text-lg text-white" />
+          <FaMapMarkerAlt className="text-3xl text-white" />
           <span className="text-lg md:text-3xl font-semibold tracking-wide">
             Thanthai Periyar Government Institute of Technology · Bagayam · Vellore - 632002 · Tamil Nadu · India
           </span>

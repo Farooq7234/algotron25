@@ -55,19 +55,10 @@ const FacultyCard: React.FC<FacultyMember> = ({
   profileImg,
   bio,
 }) => {
-  const [showDetails, setShowDetails] = useState(false);
-
-  const handleCardClick = () => {
-    setShowDetails((prevState) => !prevState);
-  };
-
   return (
     <div className="max-w-lg w-full rounded-2xl shadow-lg overflow-hidden bg-transparent p-5 relative">
       {/* Image section */}
-      <div
-        className="relative w-full h-96 cursor-pointer"
-        onClick={handleCardClick}
-      >
+      <div className="relative w-full h-96">
         <Image
           src={profileImg}
           alt={name}
@@ -78,14 +69,12 @@ const FacultyCard: React.FC<FacultyMember> = ({
       </div>
 
       {/* Details section */}
-      {showDetails && (
-        <div className="text-center mt-4">
-          <h3 className="text-3xl font-bold text-white">{name}</h3>
-          <p className="text-lg text-white italic">{degree}</p>
-          <p className="text-lg text-indigo-300 font-medium">{position}</p>
-          <p className="mt-3 text-lg text-white">{bio}</p>
-        </div>
-      )}
+      <div className="text-center mt-4">
+        <h3 className="text-3xl font-bold text-white">{name}</h3>
+        <p className="text-lg text-white italic">{degree}</p>
+        <p className="text-lg text-indigo-300 font-medium">{position}</p>
+        <p className="mt-3 text-lg text-white">{bio}</p>
+      </div>
     </div>
   );
 };
@@ -93,8 +82,8 @@ const FacultyCard: React.FC<FacultyMember> = ({
 const Faculty: React.FC = () => {
   return (
     <section className="py-12 px-6">
-      <h1 className="text-5xl font-bold text-center mb-12 Welcome-text text-transparent text-white">Meet Our Faculty</h1>
-      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
+       <h1 className=' text-center text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-mono '>Meet Our Faculties</h1> 
+      <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center py-28">
         {facultyList.map((faculty, index) => (
           <FacultyCard key={index} {...faculty} />
         ))}

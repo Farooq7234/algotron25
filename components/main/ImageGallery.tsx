@@ -7,7 +7,7 @@ const ImageGallery = () => {
   const images = Array(9).fill(0).map((_, i) => ({
     id: i + 1,
     url: `/images/img${i + 1}.jpg`,
-    alt: `Image ${i + 1}`,
+    alt: ``,
   }));
 
   return (
@@ -19,10 +19,11 @@ const ImageGallery = () => {
         className="overflow-hidden"
       >
         {images.map((image) => (
-          <div 
-            key={image.id} 
-            className="relative w-[400px] h-[300px] mx-3 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
-          >
+        <div 
+        key={image.id} 
+        className="relative w-[250px] h-[180px] sm:w-72 sm:h-72 lg:w-[400px] lg:h-[300px] mx-3 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
+      >
+      
             <Image
               src={image.url}
               alt={image.alt}
