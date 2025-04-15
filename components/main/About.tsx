@@ -41,7 +41,7 @@ const About = () => {
           variants={fadeInVariants}
         >
           <h2 className="text-4xl flex-wrap lg:text-6xl flex justify-around font-space font-semibold mb-2 lg:mb-6 text-left lg:text-left bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA]">
-            <p className='Welcome-text font-space'>National Level Technical Symposium!</p>
+            <p className='Welcome-text font-space'>A National Level Technical Symposium!</p>
           </h2>
           <motion.p
             className="mt-9 sm:mt-0 text-2xl lg:text-4xl font-space text-justify"
