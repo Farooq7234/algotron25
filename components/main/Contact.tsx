@@ -10,8 +10,8 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-14 px-4 text-center" id='contact'>
-      <h2 className="text-xl md:text-2xl font-bold text-purple-400 mb-12 tracking-wide">
+    <section className=" text-white py-28 px-4 text-center" id='contact'>
+      <h2 className="text-2xl md:text-5xl Welcome-text text-transparent font-semibold text-purple-400 mb-12 tracking-wide">
         ✦ Contact & Location ✦
       </h2>
 
