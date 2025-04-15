@@ -76,39 +76,7 @@ const NonTechnical: React.FC<Types> = ({ types }) => {
         "Engage with the 'press' (audience) confidently."
       ]
     },
-    {
-      imageSrc: "/images/events/Box-cricket.jpg",
-      title: "Box Cricket",
-      description: "Build your dream team in this simulated IPL auction event!",
-      linkTo: "https://your-link.com/ipl",
-      eventDate: "April 17",
-      rounds: [
-        { title: "Bidding Round", duration: "45 mins" }
-      ],
-      teamInfo: "3–4 per team",
-      rules: [
-        "Fixed budget for each team.",
-        "Bid smartly to form a balanced team.",
-        "Points based on team value and player performance analysis."
-      ]
-    }
-    ,
-    {
-      imageSrc: "/images/events/E-sports.jpg",
-      title: "E-sports",
-      description: "Build your dream team in this simulated IPL auction event!",
-      linkTo: "https://your-link.com/ipl",
-      eventDate: "April 17",
-      rounds: [
-        { title: "Bidding Round", duration: "45 mins" }
-      ],
-      teamInfo: "3–4 per team",
-      rules: [
-        "Fixed budget for each team.",
-        "Bid smartly to form a balanced team.",
-        "Points based on team value and player performance analysis."
-      ]
-    }
+    
   ], []);
 
 
