@@ -47,7 +47,7 @@ const About = () => {
             className="mt-9 sm:mt-0 text-2xl lg:text-4xl font-space text-justify"
             variants={fadeInVariants}
           >
-            Algotron 2025, organized by the Department of Computer Science and Engineering at Thanthai Periyar Government Institute of Technology (TPGIT), Vellore, is set to be a dynamic convergence of innovation, intellect, and inspiration.This annual technical symposium serves as a vibrant platform where tech enthusiasts, coders, and problem-solvers from various institutions unite to showcase their talents, exchange ideas, and push the boundaries of what’s possible in the digital era.Whether you're a passionate programmer, an aspiring innovator, or just curious about the world of tech — Algotron 2025 is the place to be. Join us and be a part of a celebration that blends learning with excitement and sparks the future of technology.
+            Algotron 2025, organized by the Department of Computer Science and Engineering at Thanthai Periyar Government Institute of Technology (TPGIT), Vellore, is set to be a dynamic convergence of innovation, intellect, and inspiration.This annual technical symposium serves as a vibrant platform where tech enthusiasts, coders, and problem-solvers from various institutions unite to showcase their talents, exchange ideas, and push the boundaries of what&apos;s possible in the digital era.Whether you&apos;re a passionate programmer, an aspiring innovator, or just curious about the world of tech — Algotron 2025 is the place to be. Join us and be a part of a celebration that blends learning with excitement and sparks the future of technology.
           </motion.p>
         </motion.div>
       </motion.div>
