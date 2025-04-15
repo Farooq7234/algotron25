@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { useOutsideClick } from "@/components/hooks/use-outside-click";
 import { Calendar, Clock, MapPin, Users2 } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface ExpandableCardModalProps {
   isOpen: boolean;
@@ -30,6 +32,7 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   useOutsideClick(modalRef, onClose);
+  const router = useRouter()
 
   if (!isOpen) return null;
 
@@ -94,19 +97,13 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
 
         {/* Action Buttons */}
         <div className="mt-6 flex justify-between items-center gap-4 flex-wrap">
-          <button
-            onClick={() => window.open(linkTo, "_blank")}
-            className="bg-transparent text-white border border-white px-5 py-2 rounded-xl hover:bg-white hover:text-black transition"
-          >
-            Contact Us
-          </button>
-          <a
-            href={linkTo}
-            target="_blank"
+        
+          <Link
+           href={'/event-registration'}
             className="bg-purple-600 hover:bg-purple-700 text-white px-5 py-2 rounded-xl transition"
           >
             Register Now
-          </a>
+          </Link>
         </div>
       </div>
     </div>
