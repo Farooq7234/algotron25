@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
 import { RainbowButton } from '../magicui/rainbow-button';
+import { BorderBeam } from '../magicui/border-beam';
 
 interface CardProps {
   imageSrc: string;
@@ -28,13 +29,14 @@ const Card: React.FC<CardProps> = ({
   }, []);
 
   return (
-    <div className="px-4 lg:px-0 w-full " onClick={onClick}>
+    <div className="px-4 lg:px-0 w-full " >
       <CardContainer className="mx-auto ">
         {/* Glow Effects */}
         <div className="absolute -top-14 -left-14 w-72 h-72 bg-pink-500 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
         <div className="absolute -bottom-14 -right-14 w-72 h-72 bg-cyan-400 opacity-20 rounded-full blur-3xl animate-pulse z-0" />
 
         <CardBody className="relative z-10 bg-gradient-to-br from-[#210f2f] via-[#040818] to-[#0f172a] border border-white/10 rounded-2xl p-6 w-[320px]  h-full">
+      <BorderBeam delay={6} size={200}/>
           <CardItem translateZ="60" className="h-[250px] w-full overflow-hidden rounded-xl">
             {imageLoading ? (
               <div className="flex justify-center items-center w-full h-full bg-black/50 rounded-xl">
@@ -62,7 +64,7 @@ const Card: React.FC<CardProps> = ({
 
           <div className="flex justify-end mt-6">
           
-             <RainbowButton className='text-black'>Explore</RainbowButton>
+             <RainbowButton className='text-black' onClick={onClick}>Explore</RainbowButton>
           </div>
         </CardBody>
       </CardContainer>
