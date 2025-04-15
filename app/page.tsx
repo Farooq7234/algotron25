@@ -11,10 +11,13 @@ import Events from '@/components/main/Event';
 import Contact from '@/components/main/Contact';
 import { SparklesCore } from '@/components/ui/sparkles';
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import Image from 'next/image';
+import ImageGallery from '@/components/main/ImageGallery';
+
+
 
 const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const delay = setTimeout(() => {
       setLoading(false);
@@ -51,6 +54,7 @@ const Home: React.FC = () => {
       <FlareCursor/>
       <Hero />
       <About />
+        <ImageGallery/>
       <Events/>
       <Questions/>
       <Contact/>

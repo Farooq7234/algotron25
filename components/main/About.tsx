@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
 
 const About = () => {
   const controls = useAnimation();
@@ -63,6 +62,8 @@ Algotron 2025, organized by the Department of Computer Science and Engineering a
           </motion.p>
         </motion.div>
       </motion.div>
+    
+
     </motion.div>
   );
 };
