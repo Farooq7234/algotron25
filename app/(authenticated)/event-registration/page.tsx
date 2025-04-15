@@ -35,8 +35,6 @@ const EventRegistration = () => {
     paymentMode: 'online',
   })
 
-  console.log(formData.year)
-
   useEffect(() => {
     if (user?.emailAddresses?.[0]?.emailAddress) {
       setFormData((prev) => ({
@@ -75,6 +73,12 @@ const EventRegistration = () => {
     e.preventDefault()
     setIsLoading(true)
 
+    if (formData.paymentMode === 'online' && !formData.transactionId.trim()) {
+      toast.error('Please enter the Transaction ID for online payment')
+      setIsLoading(false)
+      return
+    }
+
     try {
       const uid = generateUID()
       const response = await databases.createDocument(
@@ -104,8 +108,8 @@ const EventRegistration = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#0a0a23] z-10 text-white px-4 py-40 flex items-center justify-center">
-        <div className="bg-[#161634] shadow-2xl rounded-2xl p-8 max-w-xl w-full space-y-6 border border-gray-700">
+      <div className="min-h-screen  z-10 text-white px-4 py-40 flex items-center justify-center">
+        <div className="bg-gray-900 shadow-2xl rounded-2xl p-8 max-w-xl w-full space-y-6 border border-gray-700">
           <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
             Register for Events
           </h2>
@@ -213,24 +217,28 @@ const EventRegistration = () => {
               Total Price: <span className="text-green-400">₹{totalPrice}</span>
             </div>
 
-            <div className="text-center mt-4">
-              <p className="font-medium mb-2">Scan QR to Pay</p>
-              <img
-                src="/qr-code.png"
-                alt="QR Code"
-                className="mx-auto w-48 h-48 border-2 border-white rounded-md"
-              />
-            </div>
+            {formData.paymentMode === 'online' && (
+              <>
+                <div className="text-center mt-4">
+                  <p className="font-medium mb-2">Scan QR to Pay</p>
+                  <img
+                    src="/qr-code.png"
+                    alt="QR Code"
+                    className="mx-auto w-48 h-48 border-2 border-white rounded-md"
+                  />
+                </div>
 
-            <input
-              type="text"
-              name="transactionId"
-              placeholder="Transaction ID"
-              value={formData.transactionId}
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
-              required
-            />
+                <input
+                  type="text"
+                  name="transactionId"
+                  placeholder="Transaction ID"
+                  value={formData.transactionId}
+                  onChange={handleChange}
+                  className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
+                  required
+                />
+              </>
+            )}
 
             <button
               type="submit"
