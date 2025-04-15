@@ -108,7 +108,7 @@ const Technical: React.FC<Types> = ({ types }) => {
  <>   <div className="relative  text-white w-full">
  <FlareCursor />
 
- <h1 className="pt-28 text-center text-4xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space m-10 my-10">
+ <h1 className="pt-28 text-center text-5xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space m-10 my-10">
    {types}
  </h1>
 

@@ -5,6 +5,7 @@ import StarsCanvas from '../main/StarCanvas';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
+import { RainbowButton } from '../magicui/rainbow-button';
 
 interface CardProps {
   imageSrc: string;
@@ -60,15 +61,8 @@ const Card: React.FC<CardProps> = ({
           </CardItem>
 
           <div className="flex justify-end mt-6">
-            <CardItem
-              translateZ={20}
-              as="button"
-              onClick={onClick}
-              target="_blank"
-              className="text-xl font-medium bg-white text-black px-4 py-2 rounded-lg hover:opacity-80 transition"
-            >
-              View More 
-            </CardItem>
+          
+             <RainbowButton className='text-black'>Explore</RainbowButton>
           </div>
         </CardBody>
       </CardContainer>
