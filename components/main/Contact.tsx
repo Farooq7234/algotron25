@@ -4,7 +4,7 @@ import { FaUser } from 'react-icons/fa';
 const Contact: React.FC = () => {
   const contacts = [
     { name: 'Madesh S', phone: '+91 91506 14484' },
-    { name: 'Navinkumar R', phone: '+91 88388 92353' },
+    { name: 'Navin kumar R', phone: '+91 88388 92353' },
     { name: 'Krishna Keerthan K', phone: '+91 77089 47628' },
     { name: 'Umar Farooq A', phone: '+91 73972 90572' },
   ];
