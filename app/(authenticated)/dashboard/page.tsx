@@ -9,14 +9,17 @@ import { Query } from 'appwrite'
 import {
   Loader2,
   Calendar,
-  Building2,
   Phone,
   Receipt,
   Target,
   BadgeCheck,
   Clock,
   Ban,
-  IdCard
+  IdCard,
+  GraduationCap,
+  Mail,
+  School,
+  Building
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { BorderBeam } from '@/components/magicui/border-beam'
@@ -128,7 +131,7 @@ const Dashboard = () => {
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Building2 className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
+                        <School className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
                           <span className="font-medium text-gray-200">College:</span>
                           <span className="ml-2 capitalize">{doc.college}</span>
@@ -136,7 +139,7 @@ const Dashboard = () => {
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <Building2 className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
+                        <Building className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
                         <div>
                           <span className="font-medium text-gray-200">Department:</span>
                           <span className="ml-2">{doc.department}</span>
@@ -148,6 +151,20 @@ const Dashboard = () => {
                         <div>
                           <span className="font-medium text-gray-200">Phone:</span>
                           <span className="ml-2">{doc.phone}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <GraduationCap className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">Year:</span>
+                          <span className="ml-2">{doc.year}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <Mail className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
+                        <div>
+                          <span className="font-medium text-gray-200">Email:</span>
+                          <span className="ml-2">{doc.email}</span>
                         </div>
                       </div>
 

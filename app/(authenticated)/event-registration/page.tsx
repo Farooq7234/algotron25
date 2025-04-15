@@ -1,45 +1,50 @@
 'use client'
 
 import Navbar from '@/components/main/Navbar'
-// import StarsCanvas from '@/components/main/StarCanvas'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { databases } from '@/lib/appwrite'
 import { ID } from 'appwrite'
 import conf from '@/lib/conf'
-import {  toast, ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify'
 import { useUser } from '@clerk/nextjs'
-import { Loader2 } from "lucide-react";
+import { Loader2 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
-
 const events = [
-  { name: 'Coding Challenge', price: 100 },
-  { name: 'UI/UX Design', price: 150 },
-  { name: 'Debugging', price: 80 },
-  { name: 'Web Dev Sprint', price: 120 },
+  { name: 'Coding Challenge' },
+  { name: 'UI/UX Design' },
+  { name: 'Debugging' },
+  { name: 'Web Dev Sprint' },
 ]
 
 const EventRegistration = () => {
   const router = useRouter()
-  const {  user } = useUser()
+  const { user } = useUser()
   const [isLoading, setIsLoading] = useState(false)
 
-  console.log(user?.id)
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     college: '',
     department: '',
     phone: '',
+    year: '',
     transactionId: '',
     selectedEvents: [] as string[],
-    paymentapproval:false
-   
+    paymentapproval: false,
+    paymentMode: 'online',
   })
 
-  function generateUID() {
-    const randomPart = Math.floor(1000 + Math.random() * 9000); // 4-digit random number
-    return randomPart.toString(); 
-  }
+  console.log(formData.year)
+
+  useEffect(() => {
+    if (user?.emailAddresses?.[0]?.emailAddress) {
+      setFormData((prev) => ({
+        ...prev,
+        email: user.emailAddresses[0].emailAddress,
+      }))
+    }
+  }, [user])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -60,44 +65,41 @@ const EventRegistration = () => {
     }
   }
 
-  const totalPrice = formData.selectedEvents.reduce((sum, eventName) => {
-    const event = events.find((e) => e.name === eventName)
-    return event ? sum + event.price : sum
-  }, 0)
+  const generateUID = () => {
+    return Math.floor(1000 + Math.random() * 9000).toString()
+  }
+
+  const totalPrice = formData.paymentMode === 'online' ? 150 : 200
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+
     try {
-      const uid = generateUID();
+      const uid = generateUID()
       const response = await databases.createDocument(
-        conf.appwriteDatabaseId,         // Replace with your database ID
-        conf.appwriteCollectionId,       // Replace with your collection ID
-        ID.unique(),                // Auto-generated unique ID
+        conf.appwriteDatabaseId,
+        conf.appwriteCollectionId,
+        ID.unique(),
         {
           ...formData,
           selectedEvents: JSON.stringify(formData.selectedEvents),
-          id:user?.id,
-          amount:totalPrice ,
+          id: user?.id,
+          amount: totalPrice,
           uid: uid,
         }
       )
-      console.log('Success:', response)
       toast.success('Registration successful! ✅', {
         autoClose: 1500,
-        onClose: () => router.push('/dashboard')
+        onClose: () => router.push('/dashboard'),
       })
-      setIsLoading(false)
-     
     } catch (error) {
       console.error('Appwrite error:', error)
       toast.error('Something went wrong while submitting the form ❌')
+    } finally {
       setIsLoading(false)
-
     }
   }
-
-
 
   return (
     <>
@@ -109,18 +111,67 @@ const EventRegistration = () => {
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            {['name', 'college', 'department', 'phone'].map((field) => (
-              <input
-                key={field}
-                type={field === 'phone' ? 'tel' : 'text'}
-                name={field}
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                value={(formData as any)[field]}
-                onChange={handleChange}
-                className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400 focus:ring-2 focus:ring-purple-600 outline-none"
-                required
-              />
-            ))}
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
+              required
+            />
+
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              disabled
+              className="w-full p-3 rounded-lg bg-[#2a2a4d] text-white border border-gray-600 placeholder-gray-400"
+            />
+
+            <input
+              type="text"
+              name="college"
+              placeholder="College Name"
+              value={formData.college}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
+              required
+            />
+
+            <input
+              type="text"
+              name="department"
+              placeholder="Department"
+              value={formData.department}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
+              required
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
+              required
+            />
+
+            <select
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              required
+              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600"
+            >
+              <option value="">Select Year</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
 
             <div>
               <p className="font-semibold mb-2 text-lg">Select Events</p>
@@ -140,10 +191,22 @@ const EventRegistration = () => {
                       />
                       <span>{event.name}</span>
                     </div>
-                    <span className="text-sm font-medium">₹{event.price}</span>
                   </label>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-4">
+              <label className="block font-medium mb-2">Payment Mode</label>
+              <select
+                name="paymentMode"
+                value={formData.paymentMode}
+                onChange={handleChange}
+                className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600"
+              >
+                <option value="online">Online (₹150)</option>
+                <option value="offline">Offline (₹200)</option>
+              </select>
             </div>
 
             <div className="text-lg font-semibold">
@@ -165,7 +228,7 @@ const EventRegistration = () => {
               placeholder="Transaction ID"
               value={formData.transactionId}
               onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400 focus:ring-2 focus:ring-purple-600 outline-none"
+              className="w-full p-3 rounded-lg bg-[#1e1e2e] text-white border border-gray-600 placeholder-gray-400"
               required
             />
 
@@ -181,17 +244,11 @@ const EventRegistration = () => {
               ) : (
                 'Submit Registration'
               )}
-              
-
-
             </button>
           </form>
         </div>
       </div>
       <ToastContainer />
-
-      {/* You can enable this back if not causing input issues */}
-      {/* <StarsCanvas /> */}
     </>
   )
 }
