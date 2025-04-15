@@ -45,7 +45,7 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white text-3xl hover:text-red-500 transition"
+          className="absolute top-4 right-4 text-white text-6xl hover:text-red-500 transition"
           aria-label="Close"
         >
           &times;

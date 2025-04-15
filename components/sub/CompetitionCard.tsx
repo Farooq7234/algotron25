@@ -1,9 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { BeatLoader } from 'react-spinners';
-import StarsCanvas from '../main/StarCanvas';
 import Image from 'next/image';
-import Link from 'next/link';
 import { CardBody, CardContainer, CardItem } from '../ui/3d-card';
 import { RainbowButton } from '../magicui/rainbow-button';
 import { BorderBeam } from '../magicui/border-beam';
@@ -63,7 +61,6 @@ const Card: React.FC<CardProps> = ({
           </CardItem>
 
           <div className="flex justify-end mt-6">
-          
              <RainbowButton className='text-black' onClick={onClick}>Explore</RainbowButton>
           </div>
         </CardBody>
