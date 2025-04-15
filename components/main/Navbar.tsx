@@ -41,7 +41,7 @@ const Navbar = () => {
       <motion.div variants={slideInFromRight(40)} className="py-5 px-3">
         <div className='flex items-center mb-2'>
           <Link href="/">
-            <img src='/algotron_logo.png' alt='Logo' className='h-13 object-contain w-40' />
+            <img src='/csealogo.png' alt='Logo' className='h-[100px] object-contain w-40 mt-4' />
           </Link>
         </div>
       </motion.div>
