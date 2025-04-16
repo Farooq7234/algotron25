@@ -5,7 +5,6 @@ import Card from "../sub/CompetitionCard";
 import ExpandableCardModal from "../ui/ExpandableCardModal";
 import FlareCursor from "./Cursor";
 
-
 interface Types {
   types: string;
 }
@@ -19,134 +18,143 @@ interface EventCardData {
   rounds: { title: string; duration: string }[];
   teamInfo: string;
   rules: string[];
+  coordinators: { name: string; phone: string }[];
 }
 
 const Technical: React.FC<Types> = ({ types }) => {
   const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
   const cardDataList: EventCardData[] = useMemo(() => [
     {
       imageSrc: "/images/events/Tech_quiz.jpg",
       title: "Tech Quiz",
-      description: "High-flying aerial drone race with loops, obstacles, and adrenaline!",
-      linkTo: "https://your-link.com/drone",
-      eventDate: "April 12",
+      description: "Put your knowledge to the test in this ultimate tech showdown!",
+      linkTo: "/sign-up",
+      eventDate: "April 25",
       rounds: [
         { title: "Prelims", duration: "30 mins" },
         { title: "Finals", duration: "45 mins" }
       ],
-      teamInfo: "2–3 members per team",
+      teamInfo: "Solo or a team of duo",
       rules: [
-        "Prelims: Complete a timed obstacle course.",
-        "Finals: Perform aerial tricks and precision landing."
+        "Compete in solo or teams of two through three intense rounds filled with mind-boggling questions. No phones, no second chances — just pure brainpower. Stay sharp, play fair, and aim for the top. Let the smartest team win!"
+      ],
+      coordinators: [
+        { name: "Ajay", phone: "9876543210" },
+        { name: "Keerthi", phone: "9123456789" }
       ]
     },
     {
       imageSrc: "/images/events/Idea.jpg",
-      title: "Idea Presentation",
-      description: "Battle your bots in an arena of sparks, tactics, and destruction!",
-      linkTo: "https://your-link.com/robotics",
-      eventDate: "April 13",
+      title: "Ideathon",
+      description: "Present your innovative ideas that can solve real-world problems.",
+      linkTo: "/sign-up",
+      eventDate: "April 25",
       rounds: [
-        { title: "Knockout", duration: "10 mins" },
-        { title: "Finals", duration: "15 mins" }
+        { title: "Presentation Round", duration: "10 mins per team" }
       ],
-      teamInfo: "Up to 4 per team",
+      teamInfo: "Up to 3 per team",
       rules: [
-        "Build your own bot (restrictions apply).",
-        "No external interference or weapons.",
-        "Win by pushing opponent out or disabling them."
+        "Presentation should not exceed time limit.",
+        "Originality will be rewarded.",
+        "No plagiarised content.",
+        "send your ppt's to this email before 23rd April."
+      ],
+      coordinators: [
+        { name: "Saran", phone: "9876501234" },
+        { name: "Nivetha", phone: "9123498765" }
       ]
     },
     {
       imageSrc: "/images/events/Coding.jpg",
-      title: "Coding",
-      description: "Race against time to find and fix bugs in tricky programs.",
-      linkTo: "https://your-link.com/debug",
-      eventDate: "April 14",
+      title: "Strike The Code",
+      description: "Solve programming challenges with accuracy and speed.",
+      linkTo: "/sign-up",
+      eventDate: "April 25",
       rounds: [
         { title: "Prelims", duration: "25 mins" },
         { title: "Finals", duration: "30 mins" }
       ],
       teamInfo: "Solo or Duo allowed",
       rules: [
-        "Code in C/Python/Java.",
-        "Pre-written code with hidden bugs.",
-        "Debug the code and explain your logic."
+        "Sharpen your logic and dive into this 90-minute challenge where only the smartest minds survive! Go solo or team up with a buddy to crack problems under pressure — but no switching screens, no mobiles, and definitely no AI tools. Stay focused, stay fair, and bring your A-game. One slip could cost you the win!"
+      ],
+      coordinators: [
+        { name: "Mohan", phone: "9876567890" },
+        { name: "Divya", phone: "9001234567" }
       ]
     },
-    
     {
       imageSrc: "/images/events/ppt.jpg",
-      title: "Paper Presentation",
-      description: "Design fast, think smart. Solve user problems with great UI/UX.",
-      linkTo: "https://your-link.com/uiux",
-      eventDate: "April 15",
+      title: "Posteria",
+      description: "Got a flair for colors and creativity? Fire up your favorite design app and let your imagination run wild!",
+      linkTo: "/sign-up",
+      eventDate: "April 25",
       rounds: [
-        { title: "Design Phase", duration: "1 hour" }
+        { title: "Presentation", duration: "10 mins + 5 mins Q&A" }
       ],
-      teamInfo: "1–2 per team",
+      teamInfo: "Individual only",
       rules: [
-        "Use any design tool (Figma/XD).",
-        "Follow the given user problem statement.",
-        "Pitch your design in 5 minutes."
+        "Format: JPG, PNG, or PDF.",
+        "Software Allowed: Canva(Suggested), Word, Figma, or any digital design tool.",
+        "Theme: Will be disclosed at the beginning of the competition",
+        "Originality: All work must be original. Use of AI-generated art, stock templates, or plagiarism will lead to disqualification",
+      ],
+      coordinators: [
+        { name: "Raj", phone: "7890654321" },
+        { name: "Anjali", phone: "9101234987" }
       ]
     }
   ], []);
-  console.log(cardDataList);
-  console.log(selectedEvent);
 
   const handleCardClick = (eventData: any) => {
     setSelectedEvent(eventData);
     setIsModalOpen(true);
   };
-  
 
   return (
- <>   <div className="relative  text-white w-full">
- <FlareCursor />
+    <>
+      <div className="relative text-white w-full">
+        <FlareCursor />
 
- <h1 className="pt-28 text-center text-5xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space m-10 my-10">
-   {types}
- </h1>
+        <h1 className="pt-28 text-center text-5xl sm:text-7xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space m-10 my-10">
+          {types}
+        </h1>
 
- {/* Cards */}
- <div className="flex flex-col items-center justify-center px-4 pb-10">
-   <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
-     {cardDataList.map((card, idx) => (
-       <Card
-         key={idx}
-         imageSrc={card.imageSrc}
-         initialDescription={''}
-         linkTo={card.linkTo}
-         onClick={() => handleCardClick(card)}
-       />
-     ))}
-   </div>
- </div>
+        {/* Cards */}
+        <div className="flex flex-col items-center justify-center px-4 pb-10">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+            {cardDataList.map((card, idx) => (
+              <Card
+                key={idx}
+                imageSrc={card.imageSrc}
+                initialDescription={''}
+                linkTo={card.linkTo}
+                onClick={() => handleCardClick(card)}
+              />
+            ))}
+          </div>
+        </div>
 
- {/* Modal */}
- {selectedEvent && (
-<ExpandableCardModal
-isOpen={isModalOpen}
-onClose={() => setIsModalOpen(false)}
-imageSrc={selectedEvent.imageSrc}
-title={selectedEvent.title}
-description={selectedEvent.description}
-linkTo={selectedEvent.linkTo}
-eventDate={selectedEvent.eventDate}
-rounds={selectedEvent.rounds}
-teamInfo={selectedEvent.teamInfo}
-rules={selectedEvent.rules}
-/>
-)}
-
-
-</div>
-
-</>
+        {/* Modal */}
+        {selectedEvent && (
+          <ExpandableCardModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            imageSrc={selectedEvent.imageSrc}
+            title={selectedEvent.title}
+            description={selectedEvent.description}
+            linkTo={selectedEvent.linkTo}
+            eventDate={selectedEvent.eventDate}
+            rounds={selectedEvent.rounds}
+            teamInfo={selectedEvent.teamInfo}
+            rules={selectedEvent.rules}
+            coordinators={selectedEvent.coordinators}
+          />
+        )}
+      </div>
+    </>
   );
 };
 

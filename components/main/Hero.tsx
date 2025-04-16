@@ -23,6 +23,12 @@ const Hero: React.FC = () => {
           animate="animate"
           className='text-center space-y-6'
         >
+    <div className="flex justify-around items-center">
+  <img src="/tpgit_logo.png" className="w-[80px] h-[100px] sm:w-[100px] sm:h-[100px]" alt="" />
+  <img src="/csealogo.png" className="w-[80px] h-[100px] sm:w-[120px] sm:h-[120px]" alt="" />
+  <img src="images/TamilNadu_Logo.svg" className="w-[80px] h-[100px] sm:w-[100px] sm:h-[100px]" alt="" />
+</div>
+
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-white uppercase">
             <AuroraText className='mr-6'>Algotron </AuroraText>
             <LineShadowText className="italic" shadowColor={shadowColor}> 4.0</LineShadowText>

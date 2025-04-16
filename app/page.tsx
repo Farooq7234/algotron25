@@ -11,7 +11,6 @@ import Events from '@/components/main/Event';
 import Contact from '@/components/main/Contact';
 import { SparklesCore } from '@/components/ui/sparkles';
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
-import Image from 'next/image';
 import ImageGallery from '@/components/main/ImageGallery';
 
 

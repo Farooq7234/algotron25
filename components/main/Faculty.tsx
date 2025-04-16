@@ -12,37 +12,37 @@ interface FacultyMember {
 
 const facultyList: FacultyMember[] = [
   {
-    name: 'Dr. Anjali Rao',
-    degree: 'Ph.D. in Artificial Intelligence',
-    position: 'Professor & Head of Department',
-    profileImg: '/images/img1.jpeg',
+    name: 'Dr.P.K.Palani',
+    degree: 'B.E.(HONS),M.E.,Ph.D.,',
+    position: 'Principal',
+    profileImg: '/images/principal.jpeg',
 
   },
   {
-    name: 'Prof. Rajeev Menon',
-    degree: 'M.Tech in Embedded Systems',
-    position: 'Associate Professor',
-    profileImg: '/images/img2.jpeg',
+    name: 'Dr. S.LETITIA',
+    degree: 'M.E.,Ph.D.,',
+    position: 'Head of the Department',
+    profileImg: '/images/letitia_mam.jpg',
    
   },
   {
-    name: 'Dr. Meena Iyer',
-    degree: 'Ph.D. in Cybersecurity',
+    name: 'Prof.N.Jagadeeswari',
+    degree: 'M.E.,',
     position: 'Assistant Professor',
-    profileImg: '/images/img3.jpeg',
+    profileImg: '/images/jagadeshwari.png',
 
   },
   {
-    name: 'Prof. Vinay Kulkarni',
-    degree: 'M.Tech in Software Engineering',
-    position: 'Assistant Professor',
+    name: 'Prof.B.Jothi',
+    degree: 'M.E.,',
+    position: 'Associate Professor',
     profileImg: '/images/img4.jpeg',
   
   },
   {
-    name: 'Dr. Kavitha Sharma',
-    degree: 'Ph.D. in Machine Learning',
-    position: 'Professor',
+    name: 'Prof.Saraswathi',
+    degree: 'M.E.,',
+    position: 'Associate Professor',
     profileImg: '/images/img5.jpeg',
 
   },
@@ -63,7 +63,7 @@ const FacultyCard: React.FC<FacultyMember> = ({
           alt={name}
           layout="fill"
           objectFit="cover"
-          className="rounded-2xl"
+          className=" bg-contain rounded-2xl"
         />
       </div>
 

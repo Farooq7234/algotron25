@@ -4,26 +4,34 @@ import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 
 const ImageGallery = () => {
-  const images = Array(9).fill(0).map((_, i) => ({
-    id: i + 1,
-    url: `/images/img${i + 1}.jpg`,
-    alt: ``,
+  const images = [
+    '/images/img1.jpg',
+    '/images/img3.jpg',
+    '/images/img4.jpg',
+    '/images/img5.jpg',
+    '/images/img6.jpg',
+    '/images/img7.jpg',
+    '/images/img8.jpg',
+    '/images/img9.jpg',
+  ].map((url, index) => ({
+    id: index + 1,
+    url,
+    alt: '', // You can add alt text here if needed
   }));
 
   return (
     <section className="py-12">
       <Marquee 
         pauseOnHover 
-        speed={50} 
+        speed={150} 
         gradient={false}
         className="overflow-hidden"
       >
         {images.map((image) => (
-        <div 
-        key={image.id} 
-        className="relative w-[250px] h-[180px] sm:w-72 sm:h-72 lg:w-[400px] lg:h-[300px] mx-3 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
-      >
-      
+          <div 
+            key={image.id} 
+            className="relative w-[250px] h-[180px] sm:w-72 sm:h-72 lg:w-[400px] lg:h-[300px] mx-3 flex-shrink-0 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform"
+          >
             <Image
               src={image.url}
               alt={image.alt}

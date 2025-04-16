@@ -11,7 +11,7 @@ const AlgotronLoader: React.FC = () => {
       <div className="absolute inset-0 z-0 bg-[radial-gradient(#7F00FF_1px,transparent_1px)] bg-[size:20px_20px] opacity-20 animate-pulse" />
 
       {/* Optional Nebula Overlay */}
-      <div className="absolute inset-0 z-0 bg-[url('/nebula.svg')] bg-cover bg-center blur-sm opacity-30" />
+      {/* <div className="absolute inset-0 z-0 bg-[url('/nebula.svg')] bg-cover bg-center blur-sm opacity-30" /> */}
 
       {/* Loader */}
       <div className="z-10">
