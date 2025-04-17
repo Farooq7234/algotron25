@@ -42,7 +42,7 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4 overflow-hidden border-white">
       <div
       ref={modalRef}
-      className="relative bg-[#0D0D0D] text-white rounded-2xl shadow-2xl w-full max-w-6xl p-6 sm:p-10 border-2 border-white max-h-[90vh] overflow-hidden"
+      className="relative bg-[#0D0D0D] text-white rounded-2xl shadow-2xl w-full max-w-6xl p-6 sm:p-10 border-2 border-white max-h-[90vh] overflow-y-auto"
     >
     
         {/* Close Button */}
@@ -119,10 +119,10 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
         </div>
 
         {/* Register Button Fixed at Bottom */}
-        <div className="mt-6 flex justify-end sticky bottom-0 bg-[#0D0D0D] py-4">
+        <div className="mt-6 flex justify-end bottom-0 py-4">
           <Link
             href={linkTo}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-xl text-lg transition"
+            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-xl text-2xl sm:text-3xl transition"
           >
             Register Now
           </Link>
