@@ -27,7 +27,7 @@ const Technical: React.FC<Types> = ({ types }) => {
 
   const cardDataList: EventCardData[] = useMemo(() => [
     {
-      imageSrc: "/images/events/Tech_quiz.jpg",
+      imageSrc: "/images/events/Quiz.png",
       title: "Tech Quiz",
       description: "Put your knowledge to the test in this ultimate tech showdown!",
       linkTo: "/sign-up",
@@ -46,7 +46,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/ideathon.jpg",
+      imageSrc: "/images/events/Idea.png",
       title: "Ideathon",
       description: "Present your innovative ideas that can solve real-world problems.",
       linkTo: "/sign-up",
@@ -67,7 +67,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/code.jpg",
+      imageSrc: "/images/events/Code.png",
       title: "Strike The Code",
       description: "Solve programming challenges with accuracy and speed.",
       linkTo: "/sign-up",
@@ -86,7 +86,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/Posteria.png",
+      imageSrc: "/images/events/Design.png",
       title: "Posteria",
       description: "Got a flair for colors and creativity? Fire up your favorite design app and let your imagination run wild!",
       linkTo: "/sign-up",

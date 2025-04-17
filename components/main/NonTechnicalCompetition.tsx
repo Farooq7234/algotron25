@@ -27,7 +27,7 @@ const Technical: React.FC<Types> = ({ types }) => {
 
   const cardDataList: EventCardData[] = useMemo(() => [
     {
-      imageSrc: "/images/events/Ipl.png",
+      imageSrc: "/images/events/Crick.png",
       title: "IPL Quiz",
       description: "Are you the ultimate IPL fan? Prove it in this high-energy quiz showdown!",
       linkTo: "/sign-up",
@@ -46,7 +46,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/rumble.jpg",
+      imageSrc: "/images/events/Rampage.png",
       title: "Ram Rumble",
       description: "Memorize & Observe Think you’ve got a sharp eye and a sharp mind?",
       linkTo: "/sign-up",
@@ -64,7 +64,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/frozen_frames.jpg",
+      imageSrc: "/images/events/Frame.png",
       title: "Frozen Frames",
       description: "Love taking photos? Every picture tells a story – what’s yours?",
       linkTo: "/sign-up",

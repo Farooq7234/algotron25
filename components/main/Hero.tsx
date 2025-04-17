@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
   return (
     <section className='relative flex flex-col items-center justify-center min-h-screen overflow-hidden'>
       {/* Main Content Container */}
-      <div className='flex flex-col items-center justify-center  w-full px-4 py-24 space-y-20'>
+      <div className='flex flex-col items-center justify-center w-full px-4 py-24 space-y-20'>
 
         {/* Title Section */}
         <motion.div 
@@ -23,11 +23,18 @@ const Hero: React.FC = () => {
           animate="animate"
           className='text-center space-y-6'
         >
-    <div className="flex justify-around items-center">
-  <img src="/tpgit_logo.png" className="w-[80px] h-[100px] sm:w-[100px] sm:h-[100px]" alt="" />
-  <img src="/csealogo.png" className="w-[80px] h-[100px] sm:w-[120px] sm:h-[120px]" alt="" />
-  <img src="images/TamilNadu_Logo.svg" className="w-[80px] h-[100px] sm:w-[100px] sm:h-[100px]" alt="" />
-</div>
+          {/* Separated Logo Containers */}
+          <div className="flex justify-between w-full sm:w-[500px] lg:w-[700px] mb-8">
+            <div className="flex justify-center items-center">
+              <img src="/tpgit_logo.png" className="w-[80px] h-[100px] sm:w-[150px] sm:h-[150px]" alt="TPGIT Logo" />
+            </div>
+            <div className="flex justify-center items-center">
+              <img src="/csealogo.png" className="w-[80px] h-[100px] sm:w-[170px] sm:h-[170px]" alt="CSE Logo" />
+            </div>
+            <div className="flex justify-center items-center">
+              <img src="images/TamilNadu_Logo.svg" className="w-[80px] h-[100px] sm:w-[120px] sm:h-[120px]" alt="Tamil Nadu Logo" />
+            </div>
+          </div>
 
           <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-white uppercase">
             <AuroraText className='mr-6'>Algotron </AuroraText>
@@ -63,19 +70,17 @@ const Hero: React.FC = () => {
             animate="animate"
           >
             <Link href={'/sign-up'}>
-            <motion.button
-            className="sm:mt-6 mt-[25px] cursor-pointer w-[14em] h-[3em] text-white font-bold relative text-[12px] sm:text-[18px] sm:w-[18em] sm:h-[3em] text-center bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[10px] z-10 hover:animate-gradient-xy hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-purple-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[10px] before:hover:blur-lg before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700"
-            variants={fromTop(1.8)} initial="initial" animate="animate"
-            style={{ zIndex: 0 }}
-          >
-            Register Now
-          </motion.button>
+              <motion.button
+                className="sm:mt-6 mt-[25px] cursor-pointer w-[14em] h-[3em] text-white font-bold relative text-[12px] sm:text-[18px] sm:w-[18em] sm:h-[3em] text-center bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[10px] z-10 hover:animate-gradient-xy hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-purple-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[10px] before:hover:blur-lg before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700"
+                variants={fromTop(1.8)} initial="initial" animate="animate"
+                style={{ zIndex: 0 }}
+              >
+                Register Now
+              </motion.button>
             </Link>
           </motion.div>
         </div>
       </div>
-
-     
     </section>
   );
 };
