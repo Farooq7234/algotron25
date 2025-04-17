@@ -15,7 +15,7 @@ const facultyList: FacultyMember[] = [
     name: 'Dr.P.K.Palani',
     degree: 'B.E.(HONS),M.E.,Ph.D.,',
     position: 'Principal',
-    profileImg: '/images/principal.jpeg',
+    profileImg: '/images/principal.png',
 
   },
   {
@@ -26,24 +26,25 @@ const facultyList: FacultyMember[] = [
    
   },
   {
+    name: 'Prof.B.Jothi',
+    degree: 'M.E.,',
+    position: 'Associate Professor',
+    profileImg: '/images/Jothi_mam.png',
+  
+  },
+  {
     name: 'Prof.N.Jagadeeswari',
     degree: 'M.E.,',
     position: 'Assistant Professor',
     profileImg: '/images/jagadeshwari.png',
 
   },
+
   {
-    name: 'Prof.B.Jothi',
-    degree: 'M.E.,',
-    position: 'Associate Professor',
-    profileImg: '/images/img4.jpeg',
-  
-  },
-  {
-    name: 'Prof.Saraswathi',
-    degree: 'M.E.,',
-    position: 'Associate Professor',
-    profileImg: '/images/img5.jpeg',
+    name: 'Dr.K.Saraswathi',
+    degree: 'M.E.,Ph.D.,',
+    position: 'Assistant Professor',
+    profileImg: '/images/Dr,SARASWATHI.png',
 
   },
 ];
@@ -57,13 +58,15 @@ const FacultyCard: React.FC<FacultyMember> = ({
   return (
     <div className="max-w-lg w-full rounded-2xl shadow-lg overflow-hidden bg-transparent p-5 relative">
       {/* Image section */}
-      <div className="relative w-full h-96">
+      <div className="relative w-full">
         <Image
           src={profileImg}
           alt={name}
-          layout="fill"
-          objectFit="cover"
-          className=" bg-contain rounded-2xl"
+  
+          width={100}
+          height={100}
+          
+          className=" rounded-full bg-center"
         />
       </div>
 
