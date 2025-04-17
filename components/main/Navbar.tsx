@@ -91,7 +91,7 @@ const Navbar = () => {
               className="px-4 cursor-pointer capitalize py-6 text-4xl bg-clip-text text-transparent bg-gradient-to-b from-white to-[#AAAAAA] font-space font-bold"
             >
               <div onClick={toggleNav}>
-                <Link href={link} scroll={false}>
+                <Link href={link}>
                   {name}
                 </Link>
               </div>
