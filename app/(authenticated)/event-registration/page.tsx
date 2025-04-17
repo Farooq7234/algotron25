@@ -154,7 +154,7 @@ const EventRegistration = () => {
                <span className="font-semibold text-white text-2xl">Hello,{registeredData?.name}!</span>
             </p>
             <p className="text-base sm:text-lg text-gray-300 mb-4">
-              You’ve successfully registered for the following events:
+              You&apos;ve successfully registered for the following events:
             </p>
         
             <div className="mb-4">
