@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { useOutsideClick } from "@/components/hooks/use-outside-click";
-import { Calendar, Clock, MapPin, Users2 } from "lucide-react";
-import Image from "next/image";
+import { Clock, Users2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -41,10 +40,9 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
   return (
     <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/80 p-4 overflow-hidden border-white">
       <div
-      ref={modalRef}
-      className="relative bg-[#0D0D0D] text-white rounded-2xl shadow-2xl w-full max-w-6xl p-6 sm:p-10 border-2 border-white max-h-[90vh] overflow-y-auto"
-    >
-    
+        ref={modalRef}
+        className="relative bg-[#0D0D0D] text-white rounded-2xl shadow-2xl w-full max-w-6xl p-6 sm:p-10 border-2 border-white max-h-[90vh] overflow-y-auto"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -58,8 +56,9 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
           <h2 className="text-3xl sm:text-4xl font-bold mb-2">{title}</h2>
           <p className="text-gray-300 mb-6">{description}</p>
 
-          {/* Event Details */}
+          {/* Time & Team Info */}
           <div className="grid sm:grid-cols-2 gap-4 mb-6">
+            {/* Time */}
             <div className="bg-white/5 p-4 rounded-xl flex flex-col gap-2">
               <h3 className="text-purple-400 font-semibold">Time</h3>
               {rounds.map((round, idx) => (
@@ -72,40 +71,28 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
               ))}
             </div>
 
+            {/* Team Info */}
             <div className="bg-white/5 p-4 rounded-xl flex flex-col gap-2">
-              <h3 className="text-purple-400 font-semibold">Venue</h3>
-              <div className="flex items-center gap-2">
-                <MapPin size={18} />
-                <span className="text-gray-100">{eventDate}</span>
+              <h3 className="text-purple-400 font-semibold text-xl">Team Info</h3>
+              <div className="flex items-center gap-2 text-gray-300">
+                <Users2 size={18} />
+                <span>{teamInfo}</span>
               </div>
             </div>
           </div>
 
-         {/* Coordinators and Team Info in one row */}
-<div className="grid sm:grid-cols-2 gap-4 mb-6">
-  {/* Coordinators */}
-  <div className="bg-white/5 p-4 rounded-xl flex flex-col gap-2">
-    <h3 className="text-purple-400 font-semibold text-xl">Coordinators</h3>
-    <div className="flex justify-between text-gray-300">
-      <span className="font-medium">John Doe</span>
-      <span>+91 98765 43210</span>
-    </div>
-    <div className="flex justify-between text-gray-300">
-      <span className="font-medium">Jane Smith</span>
-      <span>+91 91234 56789</span>
-    </div>
-  </div>
-
-  {/* Team Info */}
-  <div className="bg-white/5 p-4 rounded-xl flex flex-col gap-2">
-    <h3 className="text-purple-400 font-semibold text-xl">Team Info</h3>
-    <div className="flex items-center gap-2 text-gray-300">
-      <Users2 size={18} />
-      <span>{teamInfo}</span>
-    </div>
-  </div>
-</div>
-
+          {/* Coordinators - Full Width, 2 Side-by-Side */}
+          <div className="bg-white/5 p-4 rounded-xl mb-6">
+            <h3 className="text-purple-400 font-semibold text-xl mb-4">Coordinators</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-300">
+              {coordinators.slice(0, 2).map((coordinator, index) => (
+                <div key={index}>
+                  <p className="font-medium">{coordinator.name}</p>
+                  <p>{coordinator.phone}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Rules Section */}
           <div className="bg-white/5 p-5 rounded-xl mb-6">
@@ -118,7 +105,7 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
           </div>
         </div>
 
-        {/* Register Button Fixed at Bottom */}
+        {/* Register Button */}
         <div className="mt-6 flex justify-end bottom-0 py-4">
           <Link
             href={linkTo}

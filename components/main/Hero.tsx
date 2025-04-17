@@ -26,13 +26,13 @@ const Hero: React.FC = () => {
           {/* Separated Logo Containers */}
           <div className="flex justify-between w-full sm:w-[500px] lg:w-[700px] mb-8">
             <div className="flex justify-center items-center">
-              <img src="/tpgit_logo.png" className="w-[80px] h-[100px] sm:w-[150px] sm:h-[150px]" alt="TPGIT Logo" />
+              <img src="/tpgit_logo.png" className="w-[80px] h-[80px] sm:w-[150px] sm:h-[150px]" alt="TPGIT Logo" />
             </div>
             <div className="flex justify-center items-center">
-              <img src="/csealogo.png" className="w-[80px] h-[100px] sm:w-[170px] sm:h-[170px]" alt="CSE Logo" />
+              <img src="/csealogo.png" className="w-[90px] h-[90px] sm:w-[170px] sm:h-[170px]" alt="CSE Logo" />
             </div>
             <div className="flex justify-center items-center">
-              <img src="images/TamilNadu_Logo.svg" className="w-[80px] h-[100px] sm:w-[120px] sm:h-[120px]" alt="Tamil Nadu Logo" />
+              <img src="images/TamilNadu_Logo.svg" className="w-[70px] h-[70px] sm:w-[120px] sm:h-[130px]" alt="Tamil Nadu Logo" />
             </div>
           </div>
 

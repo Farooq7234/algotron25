@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 const sponsors = [
-  { name: "Sponsor 1", logo: "/algotron_logo.png" },
+  { name: "Sponsor 1", logo: "/qspider.png" },
   { name: "Sponsor 2", logo: "/algotron_logo.png" },
   { name: "Sponsor 3", logo: "/algotron_logo.png" },
   { name: "Sponsor 4", logo: "/algotron_logo.png" },
@@ -22,7 +22,7 @@ const SponsorSection: React.FC = () => {
           {sponsors.map((sponsor, index) => (
             <div
               key={index}
-              className="relative flex-shrink-0 w-56 h-32 flex items-center justify-center bg-white/10 rounded-xl px-4"
+              className="relative flex-shrink-0 w-80 h-52 flex items-center justify-center bg-white/70 rounded-xl px-4"
             >
               
 
@@ -31,7 +31,7 @@ const SponsorSection: React.FC = () => {
                 alt={sponsor.name}
                 width={250}
                 height={100}
-                className="object-contain max-h-full grayscale hover:grayscale-0 transition duration-300 ease-in-out"
+                className="object-contain max-h-full  transition duration-300 ease-in-out"
               />
             </div>
           ))}

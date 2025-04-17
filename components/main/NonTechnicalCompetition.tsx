@@ -28,7 +28,7 @@ const Technical: React.FC<Types> = ({ types }) => {
   const cardDataList: EventCardData[] = useMemo(() => [
     {
       imageSrc: "/images/events/Crick.png",
-      title: "IPL Quiz",
+      title: "Crick Witz",
       description: "Are you the ultimate IPL fan? Prove it in this high-energy quiz showdown!",
       linkTo: "/sign-up",
       eventDate: "April 25",
@@ -38,34 +38,38 @@ const Technical: React.FC<Types> = ({ types }) => {
       ],
       teamInfo: "1-2 members per team",
       rules: [
-        "Battle through 5 thrilling rounds, each with 5 quick-fire questions. You’ve got 30 seconds per question, no second guesses. Talk fast, think faster — only one answer counts. No negatives, just non-stop cricket fun!"
+        "Battle through 5 thrilling rounds, each with 5 quick-fire questions.",
+        " You’ve got 30 seconds per question, no second guesses.",
+         "Talk fast, think faster — only one answer counts. No negatives, just non-stop cricket fun!"
       ],
       coordinators: [
-        { name: "Ajay", phone: "9876543210" },
-        { name: "Keerthi", phone: "9123456789" }
+        { name: "Sanjay C", phone: "8608122761" },
+        { name: "Pachaiyappan D", phone: "6380685156" }
       ]
     },
     {
       imageSrc: "/images/events/Rampage.png",
-      title: "Ram Rumble",
+      title: "Rampage Rumble",
       description: "Memorize & Observe Think you’ve got a sharp eye and a sharp mind?",
       linkTo: "/sign-up",
       eventDate: "April 25",
       rounds: [
-        { title: "Presentation Round", duration: "10 mins per team" }
+        { title: " Round", duration: "30 mins" }
       ],
-      teamInfo: "Up to 2 per team",
+      teamInfo: "Up to 2 members per team",
       rules: [
-        "In Ram Rumble, you'll get just 2 minutes to study an image packed with details — then it’s game on! Answer questions based on what you remember. The more you observe, the more you score. Simple, fun, and full of surprises — test your memory like never before!"
+        "In Ram Rumble, you'll get just 2 minutes to study an image packed with details — then it’s game on!",
+        " Answer questions based on what you remember.",
+        " The more you observe, the more you score. Simple, fun, and full of surprises — test your memory like never before!"
       ],
       coordinators: [
-        { name: "Saran", phone: "9876501234" },
-        { name: "Nivetha", phone: "9123498765" }
+        { name: "Bhagavathi T", phone: "8870773370" },
+        { name: "Saranya K", phone: "8148083394" }
       ]
     },
     {
       imageSrc: "/images/events/Frame.png",
-      title: "Frozen Frames",
+      title: "Frame Fusion",
       description: "Love taking photos? Every picture tells a story – what’s yours?",
       linkTo: "/sign-up",
       eventDate: "April 25",
@@ -73,13 +77,13 @@ const Technical: React.FC<Types> = ({ types }) => {
         { title: "Prelims", duration: "25 mins" },
         { title: "Finals", duration: "30 mins" }
       ],
-      teamInfo: "Solo or Duo allowed",
+      teamInfo: "Solo or Duo members allowed",
       rules: [
         "Grab your camera, step into the world around you, and let your creativity shine as you transform everyday scenes into timeless memories."
       ],
       coordinators: [
-        { name: "Mohan", phone: "9876567890" },
-        { name: "Divya", phone: "9001234567" }
+        { name: "Avaneesh J", phone: "9486435359" },
+        { name: "Kavitha C", phone: "9344658621" }
       ]
     },
     

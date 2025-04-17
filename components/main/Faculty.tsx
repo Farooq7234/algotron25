@@ -7,9 +7,17 @@ interface FacultyMember {
   degree: string;
   position: string;
   profileImg: string;
+  roles?: string[];
 }
 
 const facultyList: FacultyMember[] = [
+  {
+    name: 'Dr.N.Jagadeeswari',
+    degree: 'M.E.,Ph.D.,',
+    position: 'Assistant Professor',
+    profileImg: '/images/jagadeshwari.png',
+    roles: ['Treasurer & Event Coordinator'],
+  },
   {
     name: 'Dr.P.K.Palani',
     degree: 'B.E.(HONS),M.E.,Ph.D.,',
@@ -28,12 +36,7 @@ const facultyList: FacultyMember[] = [
     position: 'Associate Professor',
     profileImg: '/images/Jothi_mam.png',
   },
-  {
-    name: 'Prof.N.Jagadeeswari',
-    degree: 'M.E.,',
-    position: 'Assistant Professor',
-    profileImg: '/images/jagadeshwari.png',
-  },
+  
   {
     name: 'Dr.K.Saraswathi',
     degree: 'M.E.,Ph.D.,',
@@ -47,6 +50,7 @@ const FacultyCard: React.FC<FacultyMember> = ({
   degree,
   position,
   profileImg,
+  roles,
 }) => {
   return (
     <div className="max-w-lg w-full rounded-2xl shadow-lg overflow-hidden bg-transparent p-5 relative">
@@ -56,18 +60,22 @@ const FacultyCard: React.FC<FacultyMember> = ({
           <Image
             src={profileImg}
             alt={name}
-            width={180}
-            height={180}
+            width={190}
+            height={190}
             className="w-full h-full"
           />
         </div>
       </div>
 
+
+
+
       {/* Details section */}
       <div className="text-center mt-4">
         <h3 className="text-3xl font-bold text-white">{name}</h3>
-        <p className="text-lg text-white italic">{degree}</p>
-        <p className="text-lg text-indigo-300 font-medium">{position}</p>
+        <p className="text-xl text-white italic">{degree}</p>
+        <p className="text-2xl text-indigo-300 font-medium">{position}</p>
+        <p className="text-xl font-bold text-white">{roles}</p>
       </div>
     </div>
   );

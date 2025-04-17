@@ -14,7 +14,7 @@ interface EventCardData {
   title: string;
   description: string;
   linkTo: string;
-  eventDate: string;
+  // eventDate: string;
   rounds: { title: string; duration: string }[];
   teamInfo: string;
   rules: string[];
@@ -28,33 +28,35 @@ const Technical: React.FC<Types> = ({ types }) => {
   const cardDataList: EventCardData[] = useMemo(() => [
     {
       imageSrc: "/images/events/Quiz.png",
-      title: "Tech Quiz",
+      title: "Quiztronic",
       description: "Put your knowledge to the test in this ultimate tech showdown!",
       linkTo: "/sign-up",
-      eventDate: "April 25",
+      // eventDate: "April 25",
       rounds: [
         { title: "Prelims", duration: "30 mins" },
         { title: "Finals", duration: "45 mins" }
       ],
       teamInfo: "Solo or a team of duo",
       rules: [
-        "Compete in solo or teams of two through three intense rounds filled with mind-boggling questions. No phones, no second chances — just pure brainpower. Stay sharp, play fair, and aim for the top. Let the smartest team win!"
+        "Compete in solo or teams of two through three intense rounds filled with mind-boggling questions.",
+         "No phones, no second chances — just pure brainpower.",
+         " Stay sharp, play fair, and aim for the top. Let the smartest team win!"
       ],
       coordinators: [
-        { name: "Ajay", phone: "9876543210" },
-        { name: "Keerthi", phone: "9123456789" }
+        { name: "Kausik V", phone: "8838787722" },
+        { name: "Udhaya Rekha M", phone: "9087716474" }
       ]
     },
     {
       imageSrc: "/images/events/Idea.png",
-      title: "Ideathon",
+      title: "Idea Forge",
       description: "Present your innovative ideas that can solve real-world problems.",
       linkTo: "/sign-up",
       eventDate: "April 25",
       rounds: [
         { title: "Presentation Round", duration: "10 mins per team" }
       ],
-      teamInfo: "Up to 3 per team",
+      teamInfo: "Up to 3 members per team",
       rules: [
         "Presentation should not exceed time limit.",
         "Originality will be rewarded.",
@@ -62,13 +64,13 @@ const Technical: React.FC<Types> = ({ types }) => {
         "send your ppt's to this email before 23rd April."
       ],
       coordinators: [
-        { name: "Saran", phone: "9876501234" },
-        { name: "Nivetha", phone: "9123498765" }
+        { name: "Hariharan A", phone: "8072755720" },
+        { name: "Narmadha S", phone: "9487857968" }
       ]
     },
     {
       imageSrc: "/images/events/Code.png",
-      title: "Strike The Code",
+      title: "Code Storm",
       description: "Solve programming challenges with accuracy and speed.",
       linkTo: "/sign-up",
       eventDate: "April 25",
@@ -78,21 +80,23 @@ const Technical: React.FC<Types> = ({ types }) => {
       ],
       teamInfo: "Solo or Duo allowed",
       rules: [
-        "Sharpen your logic and dive into this 90-minute challenge where only the smartest minds survive! Go solo or team up with a buddy to crack problems under pressure — but no switching screens, no mobiles, and definitely no AI tools. Stay focused, stay fair, and bring your A-game. One slip could cost you the win!"
+        "Sharpen your logic and dive into this 90-minute challenge where only the smartest minds survive!",
+         "Go solo or team up with a buddy to crack problems under pressure — but no switching screens, no mobiles, and definitely no AI tools.",
+        " Stay focused, stay fair, and bring your A-game. One slip could cost you the win!"
       ],
       coordinators: [
-        { name: "Mohan", phone: "9876567890" },
-        { name: "Divya", phone: "9001234567" }
+        { name: "Paranthaman P", phone: "8248693079" },
+        { name: "Vaanathi P", phone: "9025009195" }
       ]
     },
     {
       imageSrc: "/images/events/Design.png",
-      title: "Posteria",
+      title: "Design Verse",
       description: "Got a flair for colors and creativity? Fire up your favorite design app and let your imagination run wild!",
       linkTo: "/sign-up",
       eventDate: "April 25",
       rounds: [
-        { title: "Presentation", duration: "10 mins + 5 mins Q&A" }
+        { title: "Round", duration: "60 mins" }
       ],
       teamInfo: "Individual only",
       rules: [
@@ -102,8 +106,8 @@ const Technical: React.FC<Types> = ({ types }) => {
         "Originality: All work must be original. Use of AI-generated art, stock templates, or plagiarism will lead to disqualification",
       ],
       coordinators: [
-        { name: "Raj", phone: "7890654321" },
-        { name: "Anjali", phone: "9101234987" }
+        { name: "Dhanush", phone: "8525802486" },
+        { name: "Lakshmi Priya K", phone: "9003102421" }
       ]
     }
   ], []);
