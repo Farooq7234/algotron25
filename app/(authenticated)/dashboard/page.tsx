@@ -7,26 +7,18 @@ import conf from '@/lib/conf'
 import { useUser } from '@clerk/nextjs'
 import { Query } from 'appwrite'
 import {
-  Loader2,
   Calendar,
-  Phone,
-  Receipt,
-  Target,
-  BadgeCheck,
+  CheckCircle,
+  ClipboardList,
   Clock,
-  Ban,
-  IdCard,
-  GraduationCap,
-  Mail,
-  School,
-  Building
+  Clock10Icon,
+  Info,
+  ShieldCheck
 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import { BorderBeam } from '@/components/magicui/border-beam'
+import SidebarLayout from '@/components/main/SidebarLayout'
 
 const Dashboard = () => {
   const { user } = useUser()
-  const router = useRouter()
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState<any[]>([])
 
@@ -50,170 +42,84 @@ const Dashboard = () => {
     fetchData()
   }, [user?.id])
 
-  const getPaymentStatus = (status: boolean | undefined) => {
-    if (status === true) {
-      return {
-        label: 'Payment Approved',
-        icon: <BadgeCheck className="w-4 h-4 mr-2" />,
-        style: 'bg-green-500/10 text-green-400 border border-green-500/30'
-      }
-    } else if (status === false) {
-      return {
-        label: 'Payment Pending',
-        icon: <Clock className="w-4 h-4 mr-2" />,
-        style: 'bg-yellow-500/10 text-yellow-400 border border-yellow-500/30'
-      }
-    } else {
-      // Fallback if value is missing or undefined
-      return {
-        label: 'Status Unknown',
-        icon: <Ban className="w-4 h-4 mr-2" />,
-        style: 'bg-gray-600/10 text-gray-400 border border-gray-600/30'
-      }
-    }
-  }
-  
-  
+  const totalEvents = 7
+  const registeredEventsCount = data.length
+  const paymentApprovedCount = data.filter(doc => doc.paymentapproval === true).length
+
+  const rules = [
+    "Be present 15 minutes before event starts.",
+    "Bring your college ID card.",
+    "Follow dress code if mentioned.",
+    "Respect coordinators & participants.",
+    "Mobile phones are not allowed during the event."
+  ]
 
   return (
     <>
-      <Navbar />
-      <div className="min-h-screen text-white px-4 py-28 md:py-36 flex flex-col items-center mt-10">
-        <div className="w-full max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+      {/* <Navbar /> */}
+      <SidebarLayout>
+      <div className="min-h-screen text-white px-4  flex flex-col items-center">
+        <div className="w-full max-w-6xl space-y-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
             Your Event Dashboard
           </h2>
 
+      <h3 className="text-3xl md:text-4xl font-semibold text-white capitalize">
+  Hello {user?.firstName || user?.username || 'Participant'} 👋
+
+</h3>
           {loading ? (
-            <div className="flex flex-col items-center justify-center py-16">
-              <Loader2 className="animate-spin w-10 h-10 text-purple-500 mb-4" />
-              <p className="text-lg md:text-xl text-gray-300">Fetching your registration details...</p>
-            </div>
-          ) : data.length === 0 ? (
-            <div className="text-center bg-[#171732]/60 backdrop-blur-sm rounded-3xl p-10 border border-gray-700/30 shadow-xl max-w-xl mx-auto">
-              <div className="rounded-full w-20 h-20 bg-purple-600/20 flex items-center justify-center mx-auto mb-6">
-                <Calendar className="w-10 h-10 text-purple-300" />
-              </div>
-              <p className="text-xl md:text-2xl text-gray-200 mb-3 font-medium">No registrations found</p>
-              <p className="text-gray-400 mb-8">You haven&apos;t registered for any events yet.</p>
-              <button
-                onClick={() => router.push('/event-registration')}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 text-base shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50"
-              >
-                Register Now
-              </button>
+            <div className="flex justify-center items-center py-20">
+              <Clock className="animate-spin w-10 h-10 text-purple-500 mr-4" />
+              <p className="text-xl text-gray-300">Loading your dashboard...</p>
             </div>
           ) : (
-            <div className="w-full grid gap-8">
-              {data.map((doc) => {
-                const status = getPaymentStatus(doc.paymentapproval)
+            <>
+              {/* Summary Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-[#1e1e30] p-6 rounded-2xl border border-purple-600/30 shadow-lg flex flex-col items-center">
+                  <ClipboardList className="w-10 h-10 text-purple-400 mb-3" />
+                  <h3 className="text-2xl font-bold">{totalEvents}</h3>
+                  <p className="text-gray-400 mt-1">Total Events</p>
+                </div>
+                <div className="bg-[#1e1e30] p-6 rounded-2xl border border-pink-600/30 shadow-lg flex flex-col items-center">
+                  <CheckCircle className="w-10 h-10 text-pink-400 mb-3" />
+                  <h3 className="text-2xl font-bold">{registeredEventsCount}</h3>
+                  <p className="text-gray-400 mt-1">Events Registered</p>
+                </div>
+                <div className="bg-[#1e1e30] p-6 rounded-2xl border border-green-600/30 shadow-lg flex flex-col items-center">
+                 {paymentApprovedCount ? <ShieldCheck className="w-10 h-10 text-green-400 mb-3" /> : <Clock10Icon className="w-10 h-10 text-yellow-400 mb-3" />}  
+                  <h3 className="text-2xl font-bold">{paymentApprovedCount ? "Approved":"Pending"}</h3>
+                  <p className="text-gray-400 mt-1">Payment Status</p>
+                </div>
+              </div>
 
-                return (
-                  <div
-                    key={doc.$id}
-                    className="bg-gradient-to-br from-[#1b1b36]/80 to-[#111123]/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-xl border border-gray-700/30 hover:shadow-purple-600/20 transition duration-500 transform hover:-translate-y-1"
-                  >
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-700/50 pb-5 mb-6">
-                      <h3 className="text-3xl md:text-4xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300 capitalize">
-                        {doc.name}
-                      </h3>
-                      <div className="mt-4 md:mt-0 bg-green-500/10 text-green-400 font-bold px-4 py-2 rounded-full flex items-center">
-                        <span className="text-lg md:text-xl">₹{doc.amount}</span>
-                      </div>
-                    </div>
+              {/* Rules Card */}
+              <div className="bg-[#1e1e30] p-6 rounded-2xl border border-gray-700/40 shadow-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <Info className="w-6 h-6 text-yellow-400" />
+                  <h4 className="text-xl font-semibold text-white">Event Rules</h4>
+                </div>
+                <ul className="list-disc list-inside text-gray-300 pl-4 space-y-2">
+                  {rules.map((rule, index) => (
+                    <li key={index}>{rule}</li>
+                  ))}
+                </ul>
+              </div>
 
-                    <div className="grid gap-5 text-base md:text-lg text-gray-300">
-                      <div className="flex items-center gap-3">
-                        <IdCard className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">UID:</span>
-                          <span className="ml-2 capitalize">{doc.uid}</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <School className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">College:</span>
-                          <span className="ml-2 capitalize">{doc.college}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <Building className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">Department:</span>
-                          <span className="ml-2">{doc.department}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <Phone className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">Phone:</span>
-                          <span className="ml-2">{doc.phone}</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <GraduationCap className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">Year:</span>
-                          <span className="ml-2">{doc.year}</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <Mail className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">Email:</span>
-                          <span className="ml-2">{doc.email}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <Receipt className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                        <div>
-                          <span className="font-medium text-gray-200">Transaction ID:</span>
-                          <span className="ml-2 font-mono">{doc.transactionId}</span>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium ${status.style}`}>
-                          {status.icon}
-                          {status.label}
-                          
-                        </div>
-                      </div>
-                        <p className="text-sm md:text-base  text-gray-400">
-                        ⚠️ Your payment approval is processed manually by our admin team. Please allow some time after your transaction for it to be verified.
-</p>
-
-                      <div className="mt-2">
-                        <div className="flex items-center gap-3 mb-3">
-                          <Target className="w-8 h-8 mr-5  text-purple-400 flex-shrink-0" />
-                          <span className="font-medium text-gray-200">Selected Events:</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2 pl-8">
-                          {doc.selectedEvents
-                            ? JSON.parse(doc.selectedEvents).map((event: string, index: number) => (
-                                <span
-                                  key={index}
-                                  className="inline-block bg-gradient-to-r from-purple-600/20 to-pink-600/20 text-purple-200 px-4 py-2 rounded-full text-sm border border-purple-500/30"
-                                >
-                                  {event}
-                                </span>
-                              ))
-                            : <span className="text-gray-400">N/A</span>}
-                        </div>
-                      </div>
-                    </div>
-                      <BorderBeam duration={6} size={200} />
-                  </div>
-                )
-              })}
-            </div>
+              {/* Upcoming Events */}
+              <div className="bg-[#1e1e30] p-6 rounded-2xl border border-gray-700/40 shadow-md">
+                <div className="flex items-center gap-3 mb-4">
+                  <Calendar className="w-6 h-6 text-blue-400" />
+                  <h4 className="text-xl font-semibold text-white">Upcoming Events</h4>
+                </div>
+                <p className="text-gray-400">Stay tuned! Upcoming events will be listed here soon.</p>
+              </div>
+            </>
           )}
         </div>
       </div>
+      </SidebarLayout>
     </>
   )
 }
