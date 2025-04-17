@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
       {/* Instagram Button */}
       <div className="flex justify-center cursor-pointer">
         <a
-          href="https://www.instagram.com/algotron_v4.0?igsh=dXZiN3N4dTdhZzhk"
+          href="https://www.instagram.com/algotronv_4.0?igsh=MXYzNWh1MzhhNnJyZA=="
           target="_blank"
           rel="noopener noreferrer"
           style={{ zIndex: 50, position: 'relative' }}
