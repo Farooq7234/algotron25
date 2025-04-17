@@ -46,7 +46,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/Idea.jpg",
+      imageSrc: "/images/events/ideathon.jpg",
       title: "Ideathon",
       description: "Present your innovative ideas that can solve real-world problems.",
       linkTo: "/sign-up",
@@ -67,7 +67,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/Coding.jpg",
+      imageSrc: "/images/events/code.jpg",
       title: "Strike The Code",
       description: "Solve programming challenges with accuracy and speed.",
       linkTo: "/sign-up",
@@ -86,7 +86,7 @@ const Technical: React.FC<Types> = ({ types }) => {
       ]
     },
     {
-      imageSrc: "/images/events/ppt.jpg",
+      imageSrc: "/images/events/Posteria.png",
       title: "Posteria",
       description: "Got a flair for colors and creativity? Fire up your favorite design app and let your imagination run wild!",
       linkTo: "/sign-up",

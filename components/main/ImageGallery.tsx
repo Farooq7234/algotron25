@@ -23,7 +23,7 @@ const ImageGallery = () => {
     <section className="py-12">
       <Marquee 
         pauseOnHover 
-        speed={150} 
+        speed={100} 
         gradient={false}
         className="overflow-hidden"
       >
@@ -51,3 +51,4 @@ const ImageGallery = () => {
 };
 
 export default ImageGallery;
+
