@@ -149,7 +149,7 @@ const EventRegistration = () => {
             {hasRegistered ? (
           <div className="max-w-xl mx-auto mt-10   px-6 py-8 sm:px-10 sm:py-10 text-white">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-green-400 mb-4">🎉 You're Registered!</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-green-400 mb-4">🎉 You&apos;re Registered!</h2>
             <p className="text-lg sm:text-xl mb-2">
                <span className="font-semibold text-white text-2xl">Hello,{registeredData?.name}!</span>
             </p>
