@@ -11,16 +11,16 @@ import { useRouter } from 'next/navigation'
 import SidebarLayout from '@/components/main/SidebarLayout'
 
 const technicalEvents = [
-  { name: 'Idea Forge' },
-  { name: 'Code Storm' },
-  { name: 'QuizTronic' },
-  { name: 'Design Verse' }
+  { name: 'Idea Forge (upto 3 members)' },
+  { name: 'Code Storm (solo or duo)' },
+  { name: 'QuizTronic (solo or duo)' },
+  { name: 'Design Verse (solo or duo)' }
 ]
 
 const nonTechnicalEvents = [
-  { name: 'Rampage Rumble' },
-  { name: 'Frame Fusion' },
-  { name: 'Crick Witz' }
+  { name: 'Rampage Rumble (solo or duo)' },
+  { name: 'Frame Fusion (solo or duo)' },
+  { name: 'Crick Witz (solo or duo)' }
 ]
 
 
@@ -191,6 +191,9 @@ const EventRegistration = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Input Grid */}
+                <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+             Leader
+            </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange}
                     className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400" required />
@@ -211,10 +214,58 @@ const EventRegistration = () => {
                   <input type="email" name="email" value={formData.email} disabled
                     className="w-full p-3 rounded-lg bg-[#2a2a4d] border border-gray-600 placeholder-gray-400" />
                 </div>
+                <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+             Team Member -1
+            </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <input type="text" name="college" placeholder="College Name" value={formData.college} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <input type="text" name="department" placeholder="Department" value={formData.department} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <select name="year" value={formData.year} onChange={handleChange} 
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600">
+                    <option value="">Select Year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                  </select>
+                  <input type="email" name="email" placeholder="email" onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                </div>
+                <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+              Team Member -2
+            </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <input type="text" name="name" placeholder="Full Name" value={formData.name} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <input type="text" name="college" placeholder="College Name" value={formData.college} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <input type="text" name="department" placeholder="Department" value={formData.department} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                   
+                  <select name="year" value={formData.year} onChange={handleChange} 
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600">
+                    <option value="">Select Year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                  </select>
+                  <input type="email" name="email" placeholder="email" onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600 placeholder-gray-400"  />
+                  
+                </div>
 
                 {/* Events */}
                 <div>
-  <p className="font-semibold mb-2 text-lg">Select Events</p>
+  <p className="font-semibold mb-2 text-xl">Select Events</p>
   
   <div className="mb-6">
     <h3 className="text-base font-semibold text-purple-400 mb-2">Technical Events</h3>
@@ -258,12 +309,9 @@ const EventRegistration = () => {
                     <label className="block font-medium mb-2">Payment Mode</label>
                     <select name="paymentMode" value={formData.paymentMode} onChange={handleChange}
                       className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600">
-                      <option value="online">Online (₹150)</option>
-                      <option value="offline">Offline (₹200)</option>
+                      <option value="online">Online (₹150 for individual and ₹200 for team)</option>
+                      <option value="offline">Offline (₹200 for both individual and team)</option>
                     </select>
-                  </div>
-                  <div className="text-lg font-semibold mt-8 md:mt-0">
-                    Total Price: <span className="text-green-400">₹{totalPrice}</span>
                   </div>
                 </div>
 
@@ -273,7 +321,7 @@ const EventRegistration = () => {
                     <div className="text-center mt-4">
                       <p className="font-medium mb-2">Scan QR to Pay</p>
                       <img src="/qrcode.jpg" alt="QR Code"
-                        className="mx-auto w-48 h-48 border-2 border-white rounded-md" />
+                        className="mx-auto w-80 h-80 border-2 border-white rounded-md" />
                     </div>
                     <input type="text" name="transactionId" placeholder="Transaction ID"
                       value={formData.transactionId} onChange={handleChange}

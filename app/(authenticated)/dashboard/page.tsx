@@ -20,7 +20,7 @@ import SidebarLayout from '@/components/main/SidebarLayout'
 const Dashboard = () => {
   const { user } = useUser()
   const [loading, setLoading] = useState(true)
-  const [registeredData, setData] = useState<any[]>([])
+  const [data, setData] = useState<any[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,8 +43,8 @@ const Dashboard = () => {
   }, [user?.id])
 
   const totalEvents = 7
-  const registeredEventsCount = registeredData.length
-  const paymentApprovedCount = registeredData.filter(doc => doc.paymentapproval === true).length
+  const registeredEventsCount = data.length
+  const paymentApprovedCount = data.filter(doc => doc.paymentapproval === true).length
 
   const rules = [
     "Be present 15 minutes before event starts.",
@@ -105,15 +105,6 @@ const Dashboard = () => {
                     <li key={index}>{rule}</li>
                   ))}
                 </ul>
-              </div>
-
-              {/* Upcoming Events */}
-              <div className="bg-[#1e1e30] p-6 rounded-2xl border border-gray-700/40 shadow-md">
-                <div className="flex items-center gap-3 mb-4">
-                  <Calendar className="w-6 h-6 text-blue-400" />
-                  <h4 className="text-xl font-semibold text-white">Upcoming Events</h4>
-                </div>
-                <p className="text-gray-400">Stay tuned! Upcoming events will be listed here soon.</p>
               </div>
             </>
           )}
