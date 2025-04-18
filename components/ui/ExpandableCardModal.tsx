@@ -106,14 +106,14 @@ const ExpandableCardModal: React.FC<ExpandableCardModalProps> = ({
         </div>
 
         {/* Register Button */}
-        <div className="mt-6 flex justify-end bottom-0 py-4">
+        {/* <div className="mt-6 flex justify-end bottom-0 py-4">
           <Link
             href={linkTo}
             className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-xl text-2xl sm:text-3xl transition"
           >
             Register Now
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

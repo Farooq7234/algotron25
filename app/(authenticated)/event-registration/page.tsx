@@ -281,11 +281,11 @@ const EventRegistration = () => {
                   </>
                 )}
 
-                {/* Submit Button */}
+                {/* Submit Button
                 <button type="submit" disabled={isLoading}
                   className="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 transition font-semibold text-lg shadow-md">
                   {isLoading ? <>Submitting <Loader2 className="animate-spin inline-block" /></> : 'Submit Registration'}
-                </button>
+                </button> */}
               </form>
             )}
           </div>

@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
             <Timer />
           </motion.div>
           
-          <motion.div
+          {/* <motion.div
             variants={fromTop(1.8)} 
             initial="initial" 
             animate="animate"
@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
                 Register Now
               </motion.button>
             </Link>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

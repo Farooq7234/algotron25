@@ -20,7 +20,7 @@ import SidebarLayout from '@/components/main/SidebarLayout'
 const Dashboard = () => {
   const { user } = useUser()
   const [loading, setLoading] = useState(true)
-  const [data, setData] = useState<any[]>([])
+  const [registeredData, setData] = useState<any[]>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,8 +43,8 @@ const Dashboard = () => {
   }, [user?.id])
 
   const totalEvents = 7
-  const registeredEventsCount = data.length
-  const paymentApprovedCount = data.filter(doc => doc.paymentapproval === true).length
+  const registeredEventsCount = registeredData.length
+  const paymentApprovedCount = registeredData.filter(doc => doc.paymentapproval === true).length
 
   const rules = [
     "Be present 15 minutes before event starts.",
