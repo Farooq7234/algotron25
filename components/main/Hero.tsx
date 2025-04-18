@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
               </motion.button>
             </Link>
           </motion.div> */}
-           <p className='text-3xl text-purple-300/80'>Registration opens from tomorrow from 10:00 am</p>
+           <p className='text-3xl text-purple-300/80'>Registration opens from tomorrow 10:00 am</p>
         </div>
       </div>
     </section>
