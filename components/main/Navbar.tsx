@@ -57,7 +57,7 @@ const Navbar = () => {
             <Link href={link}>{name}</Link>
           </li>
         ))}
-        {/* <li className="ml-4">
+        <li className="ml-4">
           {isSignedIn ? (
             <SignOutButton>
               <button className="text-3xl text-gray-200 bg-red-500 rounded-md border-2 px-5 py-2 font-space font-bold duration-200">
@@ -71,7 +71,7 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-        </li> */}
+        </li>
       </ul>
 
       {/* Hamburger Icon (Visible on Mobile) */}

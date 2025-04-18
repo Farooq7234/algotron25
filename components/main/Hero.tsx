@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
             <Timer />
           </motion.div>
           
-          {/* <motion.div
+          <motion.div
             variants={fromTop(1.8)} 
             initial="initial" 
             animate="animate"
@@ -78,8 +78,7 @@ const Hero: React.FC = () => {
                 Register Now
               </motion.button>
             </Link>
-          </motion.div> */}
-           <p className='text-3xl text-purple-300/80'>Registration opens from tomorrow 10:00 am</p>
+          </motion.div>
         </div>
       </div>
     </section>
