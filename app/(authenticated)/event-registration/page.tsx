@@ -272,7 +272,7 @@ const EventRegistration = () => {
                   <>
                     <div className="text-center mt-4">
                       <p className="font-medium mb-2">Scan QR to Pay</p>
-                      <img src="/qr-code.png" alt="QR Code"
+                      <img src="/qrcode.jpg" alt="QR Code"
                         className="mx-auto w-48 h-48 border-2 border-white rounded-md" />
                     </div>
                     <input type="text" name="transactionId" placeholder="Transaction ID"
