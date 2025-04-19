@@ -24,6 +24,13 @@ const HomePage: React.FC = () => {
   const faculty = [
    
     {
+      name: 'Dr.N.Jagadeeswari',
+      qualification: 'M.E.,Ph.D.',
+      title: 'Assistant Professor',
+      role: 'Treasurer & Event Coordinator',
+      image: '/faculty/1.png'
+    },
+    {
       name: 'Dr.P.K.Palani',
       qualification: 'B.E.(HONS),M.E.,Ph.D.',
       title: 'Principal',
@@ -43,13 +50,6 @@ const HomePage: React.FC = () => {
       title: 'Associate Professor',
       role: '',
       image: '/faculty/4.png'
-    },
-    {
-      name: 'Dr.N.Jagadeeswari',
-      qualification: 'M.E.,Ph.D.',
-      title: 'Assistant Professor',
-      role: 'Treasurer & Event Coordinator',
-      image: '/faculty/1.png'
     },
     {
       name: 'Dr.K.Saraswathi',
