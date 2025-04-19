@@ -178,9 +178,9 @@ const EventRegistration = () => {
     
     // Pricing logic
     if (formData.paymentMode === 'online') {
-      price = teamSize === 1 ? 150 : 200
+      price = teamSize === 1 ? 150 : 250
     } else {
-      price = teamSize === 1 ? 200 : 250
+      price = teamSize === 1 ? 200 : 300
     }
     
     return price
@@ -410,7 +410,7 @@ const EventRegistration = () => {
                     <select name="paymentMode" value={formData.paymentMode} onChange={handleFormChange}
                       className="w-full p-3 rounded-lg bg-[#1e1e2e] border border-gray-600">
                       <option value="online">Online (₹{member1.name || member2.name ? '250 for team' : '150 for individual'})</option>
-                      <option value="offline">Offline (₹{member1.name || member2.name ? '250 for team' : '200 for individual'})</option>
+                      <option value="offline">Offline (₹{member1.name || member2.name ? '300 for team' : '200 for individual'})</option>
                     </select>
                   </div>
                   <div className="flex items-center justify-center">
