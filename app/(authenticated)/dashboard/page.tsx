@@ -128,7 +128,7 @@ const Dashboard = () => {
                   <div className="bg-[#252538] p-3 rounded-lg flex items-center gap-2">
                     <Hash className="w-5 h-5 text-gray-400" />
                     <span className="text-xl">
-                      Registration ID: <span className="font-mono size-6">{registration.uid}</span>
+                     {registration.uid}
                     </span>
                   </div>
 

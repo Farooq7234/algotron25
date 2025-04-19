@@ -235,9 +235,9 @@ const EventRegistration = () => {
       <SidebarLayout>
         <div className="min-h-screen z-10 text-white px-2 flex items-center justify-center">
           <div className="bg-gray-900 shadow-2xl rounded-2xl p-8 max-w-7xl w-full space-y-6 border border-green-500">
-            <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+            {/* <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
               Register for Events
-            </h2>
+            </h2> */}
 
             {hasRegistered ? (
               <div className="max-w-xl mx-auto mt-10 px-6 py-8 sm:px-10 sm:py-10 text-white">
@@ -287,6 +287,9 @@ const EventRegistration = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Leader Section */}
+                 <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+              Register for Events
+            </h2>
                 <h2 className="text-3xl font-extrabold text-center mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
                   Leader
                 </h2>
