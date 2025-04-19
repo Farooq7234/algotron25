@@ -61,8 +61,8 @@ const EventCard: React.FC<EventProps> = ({
             
           </div>
         </div>
-        <div className="p-4 flex justify-center">
-          <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
+        <div className="p-4 flex justify-end">
+          <button className="px-4 py-2 bg-purple-600 hover:bg-purple-800 text-white rounded-md  transition-colors">
             Explore
           </button>
         </div>
