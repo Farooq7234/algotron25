@@ -23,7 +23,7 @@ const FacultyCard: React.FC<FacultyCardProps> = ({
         <img 
           src={image} 
           alt={name} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-center bg-no-repeat"
         />
       </div>
       <h3 className="text-xl font-bold text-white mb-1">{name}</h3>
