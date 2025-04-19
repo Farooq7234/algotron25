@@ -180,7 +180,7 @@ const EventRegistration = () => {
     if (formData.paymentMode === 'online') {
       price = teamSize === 1 ? 150 : 200
     } else {
-      price = teamSize === 1 ? 250 : 250
+      price = teamSize === 1 ? 200 : 250
     }
     
     return price
