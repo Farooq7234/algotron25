@@ -168,7 +168,7 @@
   -webkit-background-clip: text;
   color: transparent;
   animation: gradient-shift 8s linear infinite;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 @keyframes gradient-shift {

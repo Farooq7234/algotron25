@@ -197,7 +197,7 @@ const HomePage: React.FC = () => {
   A National Level Technical Symposium!
 </h3>
 
-<p className="text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto text-justify font-sharetech">
+<p className="text-gray-300 leading-tight text-base sm:text-lg sm:leading-relaxed max-w-4xl mx-auto text-justify font-sharetech">
   Algotron 2025, organized by the Department of Computer Science and Engineering at Thanthai Periyar
   Government Institute of Technology (TPGIT), Vellore, is set to be a dynamic convergence of innovation, intellect,
   and inspiration. This annual technical symposium serves as a vibrant platform where tech enthusiasts, coders,
