@@ -212,7 +212,7 @@ const HomePage: React.FC = () => {
       </section>
       
       {/* Events Section */}
-      <section id="events" className="py-20 px-4 relative">
+      <section id="events" className="sm:py-20 px-4 relative">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold mb-16 text-center gradient-text">Events</h2>
           
