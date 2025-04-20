@@ -127,40 +127,7 @@ const HomePage: React.FC = () => {
       <AnimatedBackground />
       
       {/* Hero Section */}
-      {/* <section className="pt-32 pb-20 px-4 relative">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex justify-center mb-10">
-            <div className="flex space-x-8 sm:space-x-16">
-              <img src="/logo/tpgit_logo.png" alt="Logo 1" className="w-20 h-20 sm:w-32 sm:h-32 object-contain" />
-              <img src="/logo/csealogo.png" alt="Logo 2" className="w-20 h-20 sm:w-32 sm:h-32 object-contain" />
-              <img src="/logo/TamilNadu_Logo.svg" alt="Logo 3" className="w-20 h-20 sm:w-32 sm:h-32 object-contain" />
-            </div>
-          </div>
-          
-          <h1 className="text-5xl sm:text-7xl font-bold mb-4">
-            <span className="gradient-text">ALGOTRON</span> <span className="text-white">4.0</span>
-          </h1>
-          <p className="text-gray-300 text-xl mb-8">A National Level Technical Symposium</p>
-          
-          <div className="inline-block bg-black bg-opacity-30 px-6 py-2 rounded-full border border-purple-600 mb-10">
-            <div className="flex items-center justify-center text-purple-400">
-              <Calendar size={20} className="mr-2" />
-              <span>APRIL 25</span>
-            </div>
-          </div>
-          
-          <CountdownTimer targetDate={targetDate} />
-          
-          <div className="mt-12">
-            <button 
-              onClick={() => navigate('/signup')}
-              className="bg-gradient-to-r from-purple-600 to-blue-500 text-white px-8 py-3 rounded-full text-lg font-medium hover:from-purple-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 glow-button"
-            >
-              Register Now
-            </button>
-          </div>
-        </div>
-      </section> */}
+      
       <Hero/>
       
       {/* About Section */}
