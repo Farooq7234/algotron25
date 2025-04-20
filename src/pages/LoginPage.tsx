@@ -149,7 +149,7 @@ const LoginPage: React.FC = () => {
           <form onSubmit={handleLogin}>
             <div className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-white">Email</Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
@@ -165,7 +165,7 @@ const LoginPage: React.FC = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password" className="text-white">Password</Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input
