@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import FlareCursor from "@/components/Cursor";  
 
@@ -44,16 +44,15 @@ function Questions() {
   return (
     <section className='pt-20' id="faqs">
       <FlareCursor />
-      <h1 className='mt-10 text-center text-2xl md:text-4xl font-semibold Welcome-text text-transparent bg-gradient-to-r from-fuchsia-200 to-cyan-200 bg-clip-text font-space'>
-        Frequently Asked Questions
-      </h1>
+      <h2 className="text-4xl font-bold mb-16 text-center gradient-text">Frequently Asked Questions</h2>
+
       <div className='py-3 mx-auto px-3'>
         <div className='mx-auto mx max-w-7xl flex flex-col'>
           {faqData.map((faq, index) => (
             <div key={faq.question} className="z-10">
               <div
                 onClick={() => handleClick(index)}
-                className="flex cursor-pointer justify-between gap-2 text-[#bdbdbe] hover:text-green-400 font-extralight font-space bg-black border-[#76767661] border m-3 sm:m-5 px-5 py-5 rounded-xl"
+                className="flex cursor-pointer justify-between gap-2 text-[#bdbdbe] hover:text-green-400 font-space bg-black border-[#76767661] border m-3 sm:m-5 px-5 py-5 rounded-xl"
               >
                 <span className="text-lg sm:text-2xl font-thin">{faq.question}</span>
                 <span>
