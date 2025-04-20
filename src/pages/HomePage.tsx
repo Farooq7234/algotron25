@@ -11,6 +11,8 @@ import Navbar from '../components/Navbar';
 import FaqAccordion from '../components/ui/FaqAccordion';
 import { fetchEvents } from '../firebase/firebase';
 import ImageGallery from '../components/ImageGallery';
+import Questions from '@/components/FAQ';
+import Hero from '@/components/Hero';
 
 // Import images for events, faculty, and sponsors
 // Note: In actual implementation, these would be properly imported
@@ -24,13 +26,6 @@ const HomePage: React.FC = () => {
   const faculty = [
    
     {
-      name: 'Dr.N.Jagadeeswari',
-      qualification: 'M.E.,Ph.D.',
-      title: 'Assistant Professor',
-      role: 'Treasurer & Event Coordinator',
-      image: '/faculty/1.png'
-    },
-    {
       name: 'Dr.P.K.Palani',
       qualification: 'B.E.(HONS),M.E.,Ph.D.',
       title: 'Principal',
@@ -43,6 +38,13 @@ const HomePage: React.FC = () => {
       title: 'Head of the Department',
       role: '',
       image: '/faculty/3.jpg'
+    },
+    {
+      name: 'Dr.N.Jagadeeswari',
+      qualification: 'M.E.,Ph.D.',
+      title: 'Assistant Professor',
+      role: 'Treasurer & Event Coordinator',
+      image: '/faculty/1.png'
     },
     {
       name: 'Prof.B.Jothi',
@@ -84,33 +86,6 @@ const HomePage: React.FC = () => {
     }
   ];
   
-  // FAQ data
-  const faqs = [
-    {
-      question: 'How can I register for Algotron 2025?',
-      answer: 'You can register by clicking on the "Register" button at the top of this page. Fill out the registration form with your details and follow the instructions for payment.'
-    },
-    {
-      question: 'Will I get a refund if I don\'t attend after registering?',
-      answer: 'No, the registration fee is non-refundable if you fail to attend.'
-    },
-    {
-      question: 'Can I register alone, or only as a team?',
-      answer: 'You can register as an individual or as a team depending on the event requirements. Some events are individual-based while others require team participation.'
-    },
-    {
-      question: 'How can I contact the organizing team?',
-      answer: 'You can contact the organizing team through the contact details provided at the bottom of this page. We have two coordinators available to assist you.'
-    },
-    {
-      question: 'What ID is required at the venue?',
-      answer: 'Please bring your college ID card and a government-issued photo ID for verification at the venue.'
-    },
-    {
-      question: 'Can I register on the spot at the venue?',
-      answer: 'Yes, on-spot registration will be available, but we recommend pre-registration to secure your spot and for a smoother check-in experience.'
-    }
-  ];
   
   // Gallery images
   
@@ -152,7 +127,7 @@ const HomePage: React.FC = () => {
       <AnimatedBackground />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 relative">
+      {/* <section className="pt-32 pb-20 px-4 relative">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex justify-center mb-10">
             <div className="flex space-x-8 sm:space-x-16">
@@ -185,7 +160,8 @@ const HomePage: React.FC = () => {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
+      <Hero/>
       
       {/* About Section */}
       <section id="about" className="py-20 px-4 relative">
@@ -266,7 +242,7 @@ const HomePage: React.FC = () => {
       {/* Faculty Section */}
       <section id="faculty" className="py-20 px-4 relative">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-16 text-center gradient-text">Meet Our Faculties</h2>
+          <h2 className="text-4xl font-bold mb-16 text-center gradient-text">Meet Our Heads</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
             {faculty.map((member, index) => (
@@ -275,6 +251,8 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+      
+
       
       {/* Sponsors Section */}
       <section id="sponsors" className="py-20 px-4 relative">
@@ -325,13 +303,8 @@ const HomePage: React.FC = () => {
       </section>
       
       {/* FAQ Section */}
-      <section id="faqs" className="py-20 px-4 relative">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl font-bold mb-16 text-center gradient-text">Frequently Asked Questions</h2>
-          
-          <FaqAccordion items={faqs} />
-        </div>
-      </section>
+      <Questions/>
+   
       
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-gray-800">
