@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
   
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen z-30">
        <Navbar />
       <AnimatedBackground />
       
