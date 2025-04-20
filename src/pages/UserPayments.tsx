@@ -73,7 +73,7 @@ const UserPayments: React.FC = () => {
       const paymentData = {
         method: paymentMethod,
         status: 'pending', // All payments require admin approval
-        amount: isTeam ? 250 : 200,
+        amount: isTeam ? 250 : 150,
         txnId: paymentMethod === 'upi' ? txnId : null,
         teamMember: isTeam ? teamMember : null,
         timestamp: new Date().toISOString()
@@ -260,7 +260,7 @@ const UserPayments: React.FC = () => {
                   onClick={() => setIsTeam(false)}
                   className={!isTeam ? "bg-purple-600 hover:bg-purple-700" : "text-black"}
                 >
-                  Individual (₹200)
+                  Individual (₹150)
                 </Button>
                 <Button
                   variant={isTeam ? "default" : "outline"}
@@ -342,7 +342,7 @@ const UserPayments: React.FC = () => {
                 className="rounded"
               />
               <div className="mt-4 text-center">
-                <p className="text-lg font-bold">Amount: ₹{isTeam ? '250' : '200'}</p>
+                <p className="text-lg font-bold">Amount: ₹{isTeam ? '250' : '150'}</p>
                 <p className="text-sm text-gray-400 mt-2">
                   After payment, copy the transaction ID and paste it above
                 </p>
