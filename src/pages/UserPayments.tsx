@@ -73,7 +73,9 @@ const UserPayments: React.FC = () => {
       const paymentData = {
         method: paymentMethod,
         status: 'pending', // All payments require admin approval
-        amount: isTeam ? 250 : 150,
+        amount: isTeam 
+  ? (paymentMethod === 'onspot' ? 300 : 250)
+  : (paymentMethod === 'onspot' ? 200 : 150),
         txnId: paymentMethod === 'upi' ? txnId : null,
         teamMember: isTeam ? teamMember : null,
         timestamp: new Date().toISOString()
@@ -296,7 +298,7 @@ const UserPayments: React.FC = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="onspot" id="onspot" className="border-white bg-white text-black data-[state=checked]:bg-white data-[state=checked]:border-white"/>
-                    <Label htmlFor="onspot">On-Spot Payment</Label>
+                    <Label htmlFor="onspot">On-Spot Payment (+₹50)</Label>
                   </div>
                 </RadioGroup>
               </div>
