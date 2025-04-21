@@ -68,22 +68,22 @@ const HomePage: React.FC = () => {
       name: 'QSpiders',
       image: '/sponsor/qspider.png'
     },
-    {
-      name: 'Algotron',
-      image: '/sponsor/default.png'
-    },
-    {
-      name: 'Algotron',
-      image: '/sponsor/default.png'
-    },
-    {
-      name: 'Algotron',
-      image: '/sponsor/default.png'
-    },
-    {
-      name: 'Algotron',
-      image: '/sponsor/default.png'
-    }
+    // {
+    //   name: 'Algotron',
+    //   image: '/sponsor/default.png'
+    // },
+    // {
+    //   name: 'Algotron',
+    //   image: '/sponsor/default.png'
+    // },
+    // {
+    //   name: 'Algotron',
+    //   image: '/sponsor/default.png'
+    // },
+    // {
+    //   name: 'Algotron',
+    //   image: '/sponsor/default.png'
+    // }
   ];
   
   

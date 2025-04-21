@@ -54,7 +54,7 @@ function Questions() {
                 onClick={() => handleClick(index)}
                 className="flex cursor-pointer justify-between gap-2 text-[#bdbdbe] hover:text-green-400 font-space bg-black border-[#76767661] border m-3 sm:m-5 px-5 py-5 rounded-xl"
               >
-                <span className="text-lg sm:text-2xl font-thin">{faq.question}</span>
+                <span className="text-lg sm:text-xl">{faq.question}</span>
                 <span>
                   {openStates[index] ? (
                     <IconChevronUp stroke={1.5} size={24} />
