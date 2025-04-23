@@ -94,7 +94,7 @@ const teachingStaff = [
     image: '/faculty/9.jpg'
   },
   {
-    name: 'Mr.K.Thirunavukkarasu',
+    name: 'Mr.K.Thirunavuk karasu',
     qualification: 'M.E.',
     title: 'Assistant Professor',
     role: '',
