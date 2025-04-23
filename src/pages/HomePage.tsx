@@ -14,6 +14,7 @@ import ImageGallery from '../components/ImageGallery';
 import Questions from '@/components/FAQ';
 import Hero from '@/components/Hero';
 
+
 // Import images for events, faculty, and sponsors
 // Note: In actual implementation, these would be properly imported
 
@@ -21,46 +22,117 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [events, setEvents] = useState<any>({});
   const targetDate = new Date('April 25, 2025 00:00:00');
-  
-  // Faculty data
-  const faculty = [
-   
-    {
-      name: 'Dr.P.K.Palani',
-      qualification: 'B.E.(HONS),M.E.,Ph.D.',
-      title: 'Principal',
-      role: '',
-      image: '/faculty/2.png'
-    },
-    {
-      name: 'Dr.S.LETITIA',
-      qualification: 'M.E.,Ph.D.',
-      title: 'Head of the Department',
-      role: '',
-      image: '/faculty/3.jpg'
-    },
-    {
-      name: 'Dr.N.Jagadeeswari',
-      qualification: 'M.E.,Ph.D.',
-      title: 'Assistant Professor',
-      role: 'Treasurer & Event Coordinator',
-      image: '/faculty/1.png'
-    },
-    {
-      name: 'Prof.B.Jothi',
-      qualification: 'M.E.',
-      title: 'Associate Professor',
-      role: '',
-      image: '/faculty/4.png'
-    },
-    {
-      name: 'Dr.K.Saraswathi',
-      qualification: 'M.E.,Ph.D.',
-      title: 'Assistant Professor',
-      role: '',
-      image: '/faculty/5.png'
-    }
-  ];
+
+
+// Heads
+const headFaculty = [
+  {
+    name: 'Dr.P.K.Palani',
+    qualification: 'B.E.(HONS),M.E.,Ph.D.',
+    title: 'Principal',
+    role: '',
+    image: '/faculty/2.png'
+  },
+  {
+    name: 'Dr.S.LETITIA',
+    qualification: 'M.E.,Ph.D.',
+    title: 'Head of the Department',
+    role: '',
+    image: '/faculty/3.jpg'
+  },
+  {
+    name: 'Dr.N.Jagadeeswari',
+    qualification: 'M.E.,Ph.D.',
+    title: 'Assistant Professor',
+    role: 'Treasurer & Event Coordinator',
+    image: '/faculty/1.png'
+  },
+  {
+    name: 'Prof.B.Jothi',
+    qualification: 'M.E.',
+    title: 'Associate Professor',
+    role: '',
+    image: '/faculty/4.png'
+  },
+  {
+    name: 'Dr.K.Saraswathi',
+    qualification: 'M.E.,Ph.D.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/5.png'
+  }
+];
+
+// Teaching Staff
+const teachingStaff = [
+  {
+    name: 'Mrs.S.Vanathi',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/6.jpg'
+  },
+  {
+    name: 'Mrs.D.Ramya',
+    qualification: 'M.Tech',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/7.jpg'
+  },
+  {
+    name: 'Mrs.A.Priyangaa',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/8.jpg'
+  },
+  {
+    name: 'Mrs.P.Vijayalakshmi',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/9.jpg'
+  },
+  {
+    name: 'Mr.K.Thirunavukkarasu',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/10.jpg'
+  }
+];
+
+// Non-Teaching Staff
+const nonTeachingStaff = [
+  {
+    name: 'Mr.C.Govindaraj',
+    qualification: 'Diploma',
+    title: 'Lab Assistant',
+    role: '',
+    image: '/faculty/10.jpg'
+  },
+  {
+    name: 'Ms.S.Megala',
+    qualification: 'B.Sc.',
+    title: 'Lab Assistant',
+    role: '',
+    image: '/faculty/11.jpg'
+  }
+];
+const FacultySection = ({ title, staff }) => (
+  <section className="py-20 px-4 relative">
+    <div className="max-w-7xl mx-auto">
+      <h2 className="text-4xl font-bold mb-16 text-center gradient-text">{title}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 justify-center items-center">
+        {staff.map((member, index) => (
+          <FacultyCard key={index} {...member} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+
   
   // Sponsors data
   const sponsors = [
@@ -207,18 +279,12 @@ const HomePage: React.FC = () => {
       </section>
       
       {/* Faculty Section */}
-      <section id="faculty" className="py-20 px-4 relative">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-16 text-center gradient-text">Meet Our Heads</h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            {faculty.map((member, index) => (
-              <FacultyCard key={index} {...member} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <FacultySection title="Meet Our Head" staff={headFaculty} />
+      <FacultySection title="Meet Our Teaching Staff" staff={teachingStaff} />
+      <FacultySection title="Meet Our Non-Teaching Staff" staff={nonTeachingStaff} />
+
       
+
 
       
       {/* Sponsors Section */}
