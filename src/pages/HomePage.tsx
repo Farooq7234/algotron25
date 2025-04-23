@@ -288,7 +288,7 @@ const FacultySection = ({ title, staff }) => (
       {/* Faculty Section */}
       <FacultySection title="Meet Our Head" staff={headFaculty} />
       <FacultySection title="Meet Our Teaching Staff" staff={teachingStaff} />
-      <FacultySection title="Meet Our Non-Teaching Staff" staff={nonTeachingStaff} />
+      <FacultySection title="Meet Our Technical Staff" staff={nonTeachingStaff} />
 
       
 
