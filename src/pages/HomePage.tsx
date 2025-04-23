@@ -116,7 +116,7 @@ const nonTeachingStaff = [
     qualification: 'Diploma',
     title: 'Lab Assistant',
     role: '',
-    image: '/faculty/10.jpg'
+    image: '/faculty/12.jpeg'
   },
   {
     name: 'Ms.S.Megala',
