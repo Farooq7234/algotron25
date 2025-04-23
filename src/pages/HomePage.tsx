@@ -70,7 +70,7 @@ const teachingStaff = [
     qualification: 'M.E.',
     title: 'Assistant Professor',
     role: '',
-    image: '/faculty/6.jpg'
+    image: '/faculty/6.jpeg'
   },
   {
     name: 'Mrs.D.Ramya',
@@ -98,7 +98,14 @@ const teachingStaff = [
     qualification: 'M.E.',
     title: 'Assistant Professor',
     role: '',
-    image: '/faculty/10.jpg'
+    image: '/faculty/10.jpeg'
+  },
+  {
+    name: 'Mrs.N.Naveena begum',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/11.jpeg'
   }
 ];
 
