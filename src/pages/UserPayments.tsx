@@ -337,7 +337,7 @@ const UserPayments: React.FC = () => {
             <h2 className="text-xl font-bold mb-4">Scan QR Code to Pay</h2>
             <NeonCard type="nontech" className="p-6 flex flex-col items-center">
               <img
-                src={isTeam ? "/QR/250.jpg" : "/QR/150.jpg"}
+                src={isTeam ? "/QR/250n.jpg" : "/QR/150n.jpg"}
                 alt="Payment QR"
                 width={200}
                 height={200}
