@@ -8,7 +8,7 @@ interface TimeLeft {
 }
 
 const calculateTimeLeft = (): TimeLeft => {
-  const targetDate = '2025-04-25T00:00:00';
+  const targetDate = '2025-04-25T08:00:00';
   const targetTime = new Date(targetDate).getTime();
   const now = new Date().getTime();
   const timeDifference = targetTime - now;
