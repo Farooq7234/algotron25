@@ -66,11 +66,18 @@ const headFaculty = [
 // Teaching Staff
 const teachingStaff = [
   {
-    name: 'Mrs.S.Vanathi',
+    name: 'Mr.K.Thirunavukkarasu',
     qualification: 'M.E.',
     title: 'Assistant Professor',
     role: '',
-    image: '/faculty/6.jpeg'
+    image: '/faculty/10.jpeg'
+  },
+  {
+    name: 'Mrs.N.Naveena begum',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/11.jpeg'
   },
   {
     name: 'Mrs.D.Ramya',
@@ -78,6 +85,13 @@ const teachingStaff = [
     title: 'Assistant Professor',
     role: '',
     image: '/faculty/7.jpg'
+  },
+  {
+    name: 'Mrs.S.Vanathi',
+    qualification: 'M.E.',
+    title: 'Assistant Professor',
+    role: '',
+    image: '/faculty/6.jpeg'
   },
   {
     name: 'Mrs.A.Priyangaa',
@@ -92,20 +106,6 @@ const teachingStaff = [
     title: 'Assistant Professor',
     role: '',
     image: '/faculty/9.jpg'
-  },
-  {
-    name: 'Mr.K.Thirunavuk karasu',
-    qualification: 'M.E.',
-    title: 'Assistant Professor',
-    role: '',
-    image: '/faculty/10.jpeg'
-  },
-  {
-    name: 'Mrs.N.Naveena begum',
-    qualification: 'M.E.',
-    title: 'Assistant Professor',
-    role: '',
-    image: '/faculty/11.jpeg'
   }
 ];
 
@@ -123,7 +123,7 @@ const nonTeachingStaff = [
     qualification: 'B.Sc.',
     title: 'Lab Assistant',
     role: '',
-    image: '/faculty/11.jpg'
+    image: '/faculty/13.png'
   }
 ];
 const FacultySection = ({ title, staff }) => (
