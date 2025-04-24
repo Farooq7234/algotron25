@@ -293,7 +293,7 @@ const UserPayments: React.FC = () => {
                 <p className="text-lg font-semibold mb-2">Payment Method</p>
                 <RadioGroup value={paymentMethod} onValueChange={(val: 'upi' | 'onspot') => setPaymentMethod(val)}>
                   <div className="flex items-center space-x-2 mb-2">
-                    <RadioGroupItem value="upi" id="upi" className="border-white bg-white text-black data-[state=checked]:bg-white data-[state=checked]:border-white" />
+                    <RadioGroupItem value="upi" id="upi" disabled className="border-white bg-white text-black data-[state=checked]:bg-white data-[state=checked]:border-white" />
                     <Label htmlFor="upi">UPI Payment</Label>
                   </div>
                   <div className="flex items-center space-x-2">
