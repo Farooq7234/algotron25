@@ -13,6 +13,7 @@ import { fetchEvents } from '../firebase/firebase';
 import ImageGallery from '../components/ImageGallery';
 import Questions from '@/components/FAQ';
 import Hero from '@/components/Hero';
+import AlumniSponsor from '@/components/AlumniSponsor';
 
 
 // Import images for events, faculty, and sponsors
@@ -147,10 +148,10 @@ const FacultySection = ({ title, staff }) => (
       name: 'QSpiders',
       image: '/sponsor/qspider.png'
     },
-    // {
-    //   name: 'Algotron',
-    //   image: '/sponsor/default.png'
-    // },
+    {
+      name: 'T.K.T',
+      image: '/sponsor/tkt.png'
+    },
     // {
     //   name: 'Algotron',
     //   image: '/sponsor/default.png'
@@ -306,6 +307,7 @@ const FacultySection = ({ title, staff }) => (
           </div>
         </div>
       </section>
+      <AlumniSponsor/>
       
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 relative">
