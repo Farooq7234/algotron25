@@ -297,7 +297,7 @@ const UserPayments: React.FC = () => {
                     <Label htmlFor="upi">UPI Payment</Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="onspot" id="onspot" className="border-white bg-white text-black data-[state=checked]:bg-white data-[state=checked]:border-white"/>
+                    <RadioGroupItem value="onspot" id="onspot" disabled className="border-white bg-white text-black data-[state=checked]:bg-white data-[state=checked]:border-white"/>
                     <Label htmlFor="onspot">On-Spot Payment (+₹50)</Label>
                   </div>
                 </RadioGroup>
