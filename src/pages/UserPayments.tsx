@@ -19,7 +19,7 @@ const UserPayments: React.FC = () => {
   const { toast } = useToast();
   
   const [userData, setUserData] = useState<any>(null);
-  const [paymentMethod, setPaymentMethod] = useState<'upi' | 'onspot'>('onspot');
+  const [paymentMethod, setPaymentMethod] = useState<'upi' | 'onspot'>('upi');
   const [txnId, setTxnId] = useState('');
   const [teamMember, setTeamMember] = useState('');
   const [isTeam, setIsTeam] = useState(false);
